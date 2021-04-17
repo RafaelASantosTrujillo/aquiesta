@@ -12,14 +12,5 @@ code {
     monospace;
 }
 
-.btn-imagen {
-  background-image: url(../search.ico);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
 
-.scrollable-menu {
-  max-height: 200px;
-  overflow-x: hidden;
-}
+
