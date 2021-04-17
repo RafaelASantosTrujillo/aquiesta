@@ -42,23 +42,29 @@ Un dueño de un negocio primero tiene que registrarse y luego iniciar sesión pa
 
 ## ¿Qué tipo de usuario tendrá nuestro sistema? 🕵️‍♀️🕵️‍♂️
 Nuestro sistema tendrá tres tipos de usuarios:
+
 - *Usuario general* - son los visitantes de ¡Aqui está! que crearon una cuenta para hacer comentarios y calificar un negocio
 - *Usuario commerce* - son el tipo de usuario que tiene un negocio
 - *Usuario admin* - es el tipo de usuario que puede modificar o eliminar la información de algún negocio o usuario
 
 ## ¿Qué acciones puede realizar cada usuario? 🙋‍♂️🙋‍♀️
+
 - *usrGeneral*: Puede filtrar por categorías, entidades, por nombre, por puntuación, ver detalles de los negocios, registrarse como nuevo usuario, iniciar sesión, calificar un negocio, dejar un comentario en el negocio, añadir a favorito un negocio, ver últimos negocios que se buscaron y se visualizaron los detalles de ese negocio.
 - *usrCommerce*: Puede registrarse como nuevo usuario, iniciar sesión, registrar un nuevo negocio, responder comentarios de los usuarios, ver la puntuación que tiene su negocio.
 - *usrAdmin*: Puede filtrar la información de los usuarios visitantes que se registraron y de los dueños de negocios así como los negocios en sí, modificar y eliminar la información de los usuarios y los negocios.
 
 ## ¿Qué información se necesita? 💾
-Para la interacción con los visitantes de ¡Aquí está! se requiere la información de los negocios:
+Para la interacción con los visitantes de **¡Aquí está!** se requiere la información de los negocios:
+
 - Categoría del negocio
 - Nombre del negocio
 - Servicios del negocio
 - Precios de servicios
 - Ubicación del negocio
+- Puntuación del negocio
+
 Para tener los detalles de los usuarios registrados se requiere:
+
 - Nombre
 - Apellido
 - Correo
@@ -69,15 +75,17 @@ Para tener los detalles de los usuarios registrados se requiere:
 - Si es un usuario general o es dueño de un negocio
 
 ## ¿Cuáles son las principales entidades? 📌
-Usuario 
-Categoría del negocio 
-Estado
-Negocio
-Usuario administrador
+
+- Usuario 
+- Categoría de los negocios 
+- Negocio
+- Usuario administrador
 
 ## ¿Qué características tiene cada entidad? 📊
-- Usuario: Se refiere a las personas que se tienen registradas. Esta entidad pertenece tanto a los usuarios de los visitantes como a la de los dueños de los negocios con la diferencia del tipo que son. (id, nombre, apellido, correo, contraseña, género, edad, estado).
-- Categoría de negocio: Se refiere al tipo de negocio (id, nombreCategoria): 
+
+- *Usuario*: Se refiere a las personas que se tienen registradas. Esta entidad pertenece tanto a los usuarios de los visitantes como a la de los dueños de los negocios con la diferencia del tipo que son. (id, nombre, apellido, correo, contraseña, género, edad, estado).
+- *Categoría de negocio*: Se refiere al tipo de negocio (id, nombreCategoria): 
+
 • ABARROTES
 • CLÍNICAS Y HOSPITALES
 • ESTÉTICAS
@@ -88,13 +96,14 @@ Usuario administrador
 • TAQUERÍAS
 • TIENDAS DE AUTOSERVICIO
 • UNIVERSIDADES
-- Estado: Se refiere a los diferentes estados de México (id, nombreEstado).
-- Negocio: Se refiere a todos los negocios. (id, nombreNegocio, ubicación, servicio, precio, contacto, calificación).
-- Usuario administrador: Un administrador puede crear, modificar y eliminar información de negocios y de los usuarios.
+
+- *Negocio*: Se refiere a todos los negocios. (id, nombreNegocio, ubicación, servicio, precio, contacto, calificación).
+- *Usuario administrador*: Un administrador puede crear, modificar y eliminar información de negocios y de los usuarios.
 
 ## ¿Qué funcionalidades tiene cada entidad? 📂
-- Cliente: agregarOpinion, modificarOpinion, eliminarOpinion y calificarNegocios
-- Categoría de Negocio: agregarCategoria, modificarCategoria, y eliminarCategoria
-- Negocio: agregarNegocios, modificarNegocios, eliminarNegocios, obtenerNegocios y listaNegocios
-- Usuario administrador: agregarUsuario, modificarUsuario, consultarUsuarios, eliminarUsuario y login
+
+- *Usuario*: login, agregarOpinion, modificarOpinion, eliminarOpinion, responderOpinion y calificarNegocio
+- *Categoría de Negocio*: agregarCategoria, modificarCategoria, y eliminarCategoria
+- *Negocio*: agregarNegocio, modificarNegocio, eliminarNegocio, consultarNegocios y listaNegocio
+- *Usuario administrador*: agregarUsuario, modificarUsuario, consultarUsuarios, eliminarUsuario, agregarNegocio, modificarNegocio, consultarNegocio, eliminarNegocio y login
 
