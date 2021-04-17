@@ -9,7 +9,9 @@
 ## Nombre del proyecto: Aquí está. Negocios al alcance de tu mano.
 
 ## Temática del proyecto 📋
-¡Aquí está! Es un directorio de negocios en México. Queremos que los clientes consulten la información de diversas categorías de negocios en las que puedan encontrar su ubicación, datos de contacto, servicios, precios y reviews de otros usuarios sobre el negocio en su Estado.
+¡Aquí está! Es un directorio de negocios en México. 
+Muchos negocios pequeños en un comunidad pueden ser desplazados por las grandes cadens y negocios, además de que los servicios proporcionados pueden ser más costosos. Es por ello, que la platafoma permite a los negocios en cierta localidad proporcionarse para que sean visibles para el resto de la gente de esa localidad. 
+El público puede consultar la información de diversas categorías de negocios, detalles de cada negocio como ubicación, datos de contacto, servicios, precios y reviews de usuarios sobre el negocio en ese Estado, entre otras cosas.
 
 ## Historias de usuario 🧑👧
 1. Como usuario de directorioNegocios, quiero ver todos los negocios que hay en un estado para poder conocer sus servicios.
