@@ -10,7 +10,8 @@
 
 ## Temática del proyecto 📋
 ¡Aquí está! Es un directorio de negocios en México. 
-Muchos negocios pequeños en un comunidad pueden ser desplazados por las grandes cadens y negocios, además de que los servicios proporcionados pueden ser más costosos. Es por ello, que la platafoma permite a los negocios en cierta localidad proporcionarse para que sean visibles para el resto de la gente de esa localidad. 
+
+Muchos negocios pequeños en un comunidad pueden ser desplazados por las grandes cadens y negocios, además de que los servicios proporcionados pueden ser más costosos. Es por ello, que la platafoma permite a los negocios en cierta localidad proporcionarse para que sean visibles para el resto de la gente de esa localidad.
 El público puede consultar la información de diversas categorías de negocios, detalles de cada negocio como ubicación, datos de contacto, servicios, precios y reviews de usuarios sobre el negocio en ese Estado, entre otras cosas.
 
 ## Historias de usuario 🧑👧
@@ -29,12 +30,13 @@ El público puede consultar la información de diversas categorías de negocios,
 ## Requerimientos y estructura del proyecto 📈
 
 ## ¿Qué espero que haga el proyecto? 📲💻
-Esperamos que los clientes de ¡Aquí está! puedan consultar los negocios, servicios y precios de los negocios que estén registrados.
+Esperamos que los clientes de ¡Aquí está! puedan consultar los negocios cercanos a su localidad, descripción de los servicios que ofrece y precios de los negocios que estén registrados.
 
 ## ¿Qué tipo de usuario tendrá nuestro sistema? 🕵️‍♀️🕵️‍♂️
 Nuestro sistema tendrá dos tipos de usuarios:
-Cliente
-Usuario administrador
+Cliente negocio - son los que colocan la información de su negocio
+Usuario general - quienes realizan las consultas de los negocios y califican los mismos
+Usuario administrador - dueño de la página
 
 ## ¿Qué acciones puede realizar cada usuario? 🙋‍♂️🙋‍♀️
 - Cliente: Podrá consultar ubicación, nombre del negocio, servicios, precios y reviews.
