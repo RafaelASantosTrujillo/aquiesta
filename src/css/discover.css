@@ -1,5 +1,37 @@
-
-.carousel-btn {
-    top: 246px;
-    right: 30px;
+@media (min-width: 768px) {
+    .carousel-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
 }
+
+.container-btn-ver-mas {
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-right: 1rem;
+    padding-bottom: 2.5rem;
+}
+/* .carousel-btn {
+    top: 140px;
+    right: 15px;
+}
+@media (min-width: 480px) {
+    .carousel-btn {
+        top:245px;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-btn {
+        top:135px;
+    }
+}
+@media (min-width: 1200px) {
+    .carousel-btn {
+        top:240px;
+    }
+} */
