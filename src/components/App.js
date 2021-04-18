@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Register from "./Register";
-import Commerce from "./Commerce";
-import Header from "./Header";
+
 import Main from "./Main";
 import NotFound from "./NotFound";
 import Layout from "./Layout";
 import Home from "./Home";
+import Category from "./Category";
+import Featured from "./Featured";
 
 function App() {
     return (
@@ -15,6 +15,8 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/directory" component={Main} />
+                    <Route exact path="/categories" component={Category} />
+                    <Route exact path="/featured" component={Featured} />
                     <Route component={NotFound} />
                 </Switch>
             </Layout>
