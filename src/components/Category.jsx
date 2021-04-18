@@ -1,11 +1,16 @@
-import React from 'react';
-import Register from "./Register";
-import Commerce from "./Commerce";
-function Category(){
+import React from "react";
+function Category() {
     return (
         <React.Fragment>
-            <Register/>
-            <Commerce/>
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    textAlign: "center",
+                }}
+            >
+                <p style={{ fontSize: "70px" }}>Sección en construcción</p>
+            </div>
         </React.Fragment>
     );
 }

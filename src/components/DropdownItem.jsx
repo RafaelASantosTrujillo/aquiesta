@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DropdownItem = (props) => {
     return (
-        <li><a className="dropdown-item" href="https://google.com">{props.state}</a></li>
+        <li><Link className="dropdown-item" to="/directory">{props.state}</Link></li>
     )
 }
 
