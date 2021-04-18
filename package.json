@@ -8,7 +8,11 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
     "react": "^17.0.2",
+<<<<<<< HEAD
     "react-bootstrap": "^1.5.2",
+=======
+    "react-dark-mode-toggle": "^0.2.0",
+>>>>>>> 5f06ad8410eb517deeb15ee8d20d9ef938c777bf
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.1"

@@ -1,12 +1,15 @@
 import React from 'react';
 import Register from './Register';
 import Commerce from './Commerce';
+import Header from './Header';
+import Main from './Main';
 
-const App = () => {
+
+function App() {
   return (
-    <div className="container-fluid">
-      
-      
+    <div>
+      <Header />
+      <Main />
       <Register />
       <Commerce />
     </div>
@@ -14,3 +17,4 @@ const App = () => {
 };
 
 export default App;
+
