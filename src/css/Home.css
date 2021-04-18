@@ -1,0 +1,14 @@
+.home-container{
+    width:100%;
+    display: flex;
+}
+.home-container1{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.home-container2{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
