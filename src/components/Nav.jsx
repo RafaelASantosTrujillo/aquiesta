@@ -50,7 +50,7 @@ const Nav = () => {
                 </Link>
             </li>
             <li className="nav-item me-4">
-                <Link className="nav-link" to="https://google.com">
+                <Link className="nav-link" to="/directory">
                     Directorio
                 </Link>
             </li>

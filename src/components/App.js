@@ -14,6 +14,7 @@ function App() {
             <Layout>
                 <Switch>
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/directory" component={Main} />
                     <Route component={NotFound} />
                 </Switch>
             </Layout>
