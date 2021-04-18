@@ -77,3 +77,6 @@ Usuario administrador
 - Negocio: agregarNegocios, modificarNegocios, eliminarNegocios, obtenerNegocios y listaNegocios
 - Usuario administrador: agregarUsuario, modificarUsuario, consultarUsuarios, eliminarUsuario y login
 
+## Prototipo de la Interfaz (versión 1) 🌐
+Por el momento las secciones que están activas en el prototipo son "Seleccionar Estado" y la opción del estado de Morelos.
+https://xd.adobe.com/view/87e4f1f3-c5d6-462c-635b-8756d4931a26-f1d5/
