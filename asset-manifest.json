@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/aquiesta/static/css/main.50e66e34.chunk.css",
+    "main.js": "/aquiesta/static/js/main.569df826.chunk.js",
+    "main.js.map": "/aquiesta/static/js/main.569df826.chunk.js.map",
+    "runtime-main.js": "/aquiesta/static/js/runtime-main.fc523990.js",
+    "runtime-main.js.map": "/aquiesta/static/js/runtime-main.fc523990.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/aquiesta/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.d4c94086.chunk.js": "/aquiesta/static/js/2.d4c94086.chunk.js",
+    "static/js/2.d4c94086.chunk.js.map": "/aquiesta/static/js/2.d4c94086.chunk.js.map",
+    "static/js/3.296c338a.chunk.js": "/aquiesta/static/js/3.296c338a.chunk.js",
+    "static/js/3.296c338a.chunk.js.map": "/aquiesta/static/js/3.296c338a.chunk.js.map",
+    "index.html": "/aquiesta/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/aquiesta/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.50e66e34.chunk.css.map": "/aquiesta/static/css/main.50e66e34.chunk.css.map",
+    "static/js/2.d4c94086.chunk.js.LICENSE.txt": "/aquiesta/static/js/2.d4c94086.chunk.js.LICENSE.txt",
+    "static/media/formSearch.css": "/aquiesta/static/media/search.e12ce67a.ico"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc523990.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.d4c94086.chunk.js",
+    "static/css/main.50e66e34.chunk.css",
+    "static/js/main.569df826.chunk.js"
+  ]
+}
