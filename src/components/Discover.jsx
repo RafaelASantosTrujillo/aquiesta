@@ -2,14 +2,6 @@ import React from 'react';
 import '../css/discover.css';
 
 
-const carouselItems_1 = [
-    {
-        key: "",
-        image: "",
-        alt: ""
-    }
-]
-
 const Discover = () => {
     return (
         <div className="mt-5">
