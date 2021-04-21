@@ -1,6 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Commerce from "./Commerce";
+
 function Register() {
+    const [form,setForm] = useState({
+        name:'',
+        lastname:'',
+        gender:'',
+        state:'',
+        mail:'',
+        password:'',
+    });
+    const [checkbox,setCheckbox] = useState(true);
+
+    const [isSubmitting,setSubmitting] =useState(false);
+
+
+    useEffect( ()=>{
+        setSubmitting(true);
+
+    })
+
+
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value  
+        });
+        //false para cuando si es el negocio
+        //true para usuario normal
+        setCheckbox(!checkbox);   
+    };
+
+
+    const validate = () => {
+        let err ={};
+        if(!form.name){
+            err.name= 'Nombre es un campo requerido'
+        }
+        return err;
+    }
+
+    const showError = (errObj) => {
+        let errMsg='';
+
+        for(let err in errObj){
+            errMsg += `${errObj[err]}. `;
+
+        }
+
+        alert(`Errors ${errMsg}`);
+    }
+    
+    console.log(form);
+    console.log(checkbox);
     return (
         <React.Fragment>
             <div className="pt-3 mb-3 container-fluid d-flex flex-column">
@@ -18,7 +70,6 @@ function Register() {
                                     <label
                                         for="nameRegister"
                                         class="col-form-label"
-                                        required
                                     >
                                         Nombre
                                     </label>
@@ -26,14 +77,19 @@ function Register() {
                                 <div className="col-auto">
                                     <input
                                         type="text"
+                                        name="name"
                                         className="form-control"
+                                        onChange={handleChange}
+                                        required
                                     />
+                                    <div className="invalid-feedback">
+                                        El campo debe ser llenado
+                                    </div>
                                 </div>
                                 <div className="col-auto">
                                     <label
                                         for="lastNameRegister"
                                         class="col-form-label"
-                                        required
                                     >
                                         Apellido
                                     </label>
@@ -41,7 +97,10 @@ function Register() {
                                 <div className="col-auto">
                                     <input
                                         type="text"
+                                        name="lastname"
                                         className="form-control"
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -57,7 +116,11 @@ function Register() {
                                     </label>
                                 </div>
                                 <div className="col-auto">
-                                    <select className="form-select" required>
+                                    <select 
+                                    className="form-select" 
+                                    name="gender" 
+                                    onChange={handleChange}
+                                    required>
                                         <option selected>
                                             Selecciona tu género
                                         </option>
@@ -76,7 +139,9 @@ function Register() {
                                 <div className="col-auto">
                                     <div className="col-auto">
                                         <select
-                                            className="form-select"
+                                            className="form-select" 
+                                            name="state" 
+                                            onChange={handleChange}
                                             required
                                         >
                                             <option selected>
@@ -197,7 +262,9 @@ function Register() {
                                     <input
                                         type="email"
                                         className="form-control"
-                                        id="emailRegister"
+                                        name="mail"
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                                 <div className="col-auto">
@@ -212,7 +279,9 @@ function Register() {
                                     <input
                                         type="password"
                                         className="form-control"
-                                        id="passwordRegister"
+                                        name="password"
+                                        onChange={handleChange}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -223,7 +292,8 @@ function Register() {
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
-                                        id="flexSwitchCheckDefault"
+                                        name="checkbox"
+                                        onClick={handleChange}
                                     />
                                     <label
                                         className="form-check-label"
