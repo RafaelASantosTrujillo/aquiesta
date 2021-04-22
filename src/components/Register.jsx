@@ -1,243 +1,198 @@
-import React, { useState } from "react";
+import React from "react";
 import Commerce from "./Commerce";
 
 let states = [
     {
         label: "Aguascalientes",
-        key: 'Aguascalientes',
         value: 'Aguascalientes'
     }, {
         label: "Baja California",
-        key: 'Baja California',
         value: 'Baja California'
     }, {
         label: "Campeche",
-        key: 'Campeche',
         value: 'Campeche'
     }, {
         label: "Chiapas",
-        key: 'Chiapas',
         value: 'Chiapas'
     }, {
-        label: "Chihuahuas",
-        key: 'Chihuahua',
+        label: "Chihuahua",
         value: 'Chihuahua'
     }, {
         label: "Ciudad de México",
-        key: 'Ciudad de México',
         value: 'Ciudad de México'
     }, {
         label: "Coahuila",
-        key: 'Coahuila',
         value: 'Coahuila'
     }, {
         label: "Colima",
-        key: 'Colima',
         value: 'Colima'
     }, {
         label: "Durango",
-        key: 'Durango',
         value: 'Durango'
     }, {
         label: "Estado de México",
-        key: 'Estado de México',
         value: 'Estado de México'
     }, {
         label: "Guanajuato",
-        key: 'Guanajuato',
         value: 'Guanajuato'
     }, {
         label: "Guerrero",
-        key: 'Guerrero',
         value: 'Guerrero'
     }, {
         label: "Hidalgo",
-        key: 'Hidalgo',
         value: 'Hidalgo'
     }, {
         label: "Jalisco",
-        key: 'Jalisco',
         value: 'Jalisco'
     }, {
         label: "Michoacán",
-        key: 'Michoacán',
         value: 'Michoacán'
     }, {
         label: "Morelos",
-        key: 'Morelos',
         value: 'Morelos'
     }, {
         label: "Nayarit",
-        key: 'Nayarit',
         value: 'Nayarit'
     }, {
         label: "Nuevo León",
-        key: 'Nuevo León',
         value: 'Nuevo León'
     }, {
         label: "Oaxaca",
-        key: 'Oaxaca',
         value: 'Oaxaca'
     }, {
         label: "Puebla",
-        key: 'Puebla',
         value: 'Puebla'
     }, {
         label: "Querétaro",
-        key: 'Querétaro',
         value: 'Querétaro'
     }, {
         label: "Quintana Roo",
-        key: 'Quintana Roo',
         value: 'Quintana Roo'
     }, {
         label: "San Luis Potosí",
-        key: 'San Luis Potosí',
         value: 'San Luis Potosí'
     }, {
         label: "Sinaloa",
-        key: 'Sinaloa',
         value: 'Sinaloa'
     }, {
         label: "Sonora",
-        key: 'Sonora',
         value: 'Sonora'
     }, {
         label: "Tabasco",
-        key: 'Tabasco',
         value: 'Tabasco'
     }, {
         label: "Tamaulipas",
-        key: 'Tamaulipas',
         value: 'Tamaulipas'
     }, {
         label: "Tlaxcala",
-        key: 'Tlaxcala',
         value: 'Tlaxcala'
     }, {
         label: "Veracruz",
-        key: 'Veracruz',
         value: 'Veracruz'
     }, {
         label: "Yucatán",
-        key: 'Yucatán',
         value: 'Yucatán'
     }, {
         label: "Zacatecas",
-        key: 'Zacatecas',
         value: 'Zacatecas'
     }
 ]
 
-let formElements = [
-    {
-        label: "Nombre",
-        key: 'name',
-        type: 'text'
-    }, {
-        label: "Apellido(s)",
-        key: 'lastname',
-        type: 'text'
-    },
-    {
-        label: "Género",
-        key: 'gender',
-        type: 'select'
-    }, {
-        label: "Estado",
-        key: 'state',
-        type: 'select'
-    },
-    {
-        label: "Correo",
-        key: 'mail',
-        type: 'mail'
-    }, {
-        label: "Contraseña",
-        key: 'password',
-        type: 'password'
-    }, {
-        label: "Soy dueño de un negocio",
-        key: 'type',
-        type: 'checkbox'
-    }
-]
 
+class Register extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            lastname: '',
+            gender: '',
+            usrState: '',
+            mail: '',
+            password: '',
+            type: true,
+        };
 
-
-
-function Register() {
-    const [formData, setFormData] = useState({})
-    const [formState, setFormState] = useState({})
-
-    const handleChange = (value, key) => {
-        setFormData({ ...formData, ...{ [key]: value } });
-    }
-    const submit = () => {
-        if (isFormInValid()) {
-            return
-        }
-        alert(JSON.stringify(formData))
+        this.changeHandlerRegister = this.changeHandlerRegister.bind(this);
+        this.submitHandlerRegister = this.submitHandlerRegister.bind(this);
     }
 
-    const isFormInValid = () => {
-        let returnValue = false;
-        formElements.forEach(formElement => {
-            if (formData[formElement.key] === undefined) {
-                alert(formElement.label + " is missing");
-                returnValue = true
-            }
-        })
-
-        return returnValue
+    submitHandlerRegister = (event) => {
+        event.preventDefault();
+        let name = this.state.name;
+        let lastname = this.state.lastname;
+        let gender = this.state.gender;
+        let state = this.state.usrState;
+        let mail = this.state.mail;
+        let password = this.state.password;
+        let type = this.state.type;
+        console.log(this.state);
     }
 
+    changeHandlerRegister = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        this.setState({ [name]: value });
+    }
 
-
-    return (
-        <React.Fragment>
-            <div className="pt-3 mb-3 container-fluid d-flex flex-column">
-                <div className="d-flex justify-content-center">
-                    <h1>Registrate</h1>
-                </div>
-                <div className="mb-3 d-flex justify-content-center">
-                    <h2>Queremos que te unas a nuestra comunidad</h2>
-                </div>
-                <div className="m-4 pt-4 container-fluid d-flex justify-content-center">
-                    <form className="row g-3 d-flex flex-row" novalidate>
-                        {formElements.map(formElement => {
-                            if (formElement.type === "select" && formElement.key === "gender") {
-                                return <div className="g-3 col-auto">
-                                    <label
-                                        for={formData[formElement.label]}
-                                        className="form-label">
-                                        {formElement.label}
-                                    </label>
-                                    <select onChange={(e) => {
-                                        handleChange(e.target.value, formElement.key)
-                                    }}
-                                        className="form-select">
-                                        <option value="" key="" selected>Selecciona tu género</option>
-                                        <option value="femenino" key="femenino"> Femenino </option>
-                                        <option value="masculino" key="masculino">Masculino</option>
+    render() {
+        return (
+            <React.Fragment>
+                <div className="pt-3 mb-3 ms-5  container-fluid d-flex flex-column">
+                    <div className="d-flex justify-content-center">
+                        <h1>Registrate</h1>
+                    </div>
+                    <div className="mb-3 d-flex justify-content-center">
+                        <h2>Queremos que te unas a nuestra comunidad</h2>
+                    </div>
+                    <div className="m-4 pt-4 container-fluid">
+                        <form className="row g-3 d-flex flex-column" onSubmit={this.submitHandlerRegister}>
+                            <div className="row d-flex justify-content-center">
+                                <div className="col-md-3 g-3">
+                                    <label className="form-label">Nombre</label>
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        name="name"
+                                        value={this.state.name}
+                                        onChange={this.changeHandlerRegister}
+                                        required
+                                    />
+                                </div>
+                                <div className="col-md-3 g-3">
+                                    <label className="form-label">Apellido(s)</label>
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        name="lastname"
+                                        value={this.state.lastname}
+                                        onChange={this.changeHandlerRegister}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="row d-flex justify-content-center">
+                                <div className="col-md-3 g-3">
+                                    <label className="form-label"> Género </label>
+                                    <select value={this.state.gender}
+                                        className="form-select" onChange={this.changeHandlerRegister}
+                                        name="gender" required>
+                                        <option defaultValue>Selecciona tu género</option>
+                                        <option value="femenino"> Femenino </option>
+                                        <option value="masculino">Masculino</option>
                                     </select>
                                 </div>
-                            } else if (formElement.type === "select" && formElement.key === "state") {
-                                return <div className="col-auto">
-                                    <label
-                                        className="form-label">
-                                        {formElement.label}
-                                    </label>
-                                    <select onChange={(e) => {
-                                        handleChange(e.target.value, formElement.key)
-                                    }}
-                                        className="form-select">
-                                        <option value="" key="" selected>Selecciona tu estado</option>
+                                <div className="col-md-3 g-3">
+                                    <label className="form-label"> Estado </label>
+                                    <select value={this.state.usrState}
+                                        className="form-select" onChange={this.changeHandlerRegister} 
+                                        name="usrState" required>
+                                        <option defaultValue>Selecciona tu estado</option>
                                         {
                                             states.map(state => {
                                                 return <option
+                                                    key={state.value}
                                                     value={state.value}
-                                                    key={state.key}
                                                 >
                                                     {state.label}
                                                 </option>
@@ -245,56 +200,50 @@ function Register() {
                                         }
                                     </select>
                                 </div>
-                            } else if (formElement.type === "checkbox") {
-                                return <div className="form-check">
-                                    <div className="form-check form-switch">
-                                        <input
-                                            className="form-check-input"
-                                            type={formElement.type}
-                                            key={formElement.key}
-                                        />
-                                        <label
-                                            className="form-check-label"
-                                        >
-                                            {formElement.label}
-                                        </label>
-                                    </div>
-                                </div>
-                            }
-                            else {
-                                return <div className="col-md-3">
-                                    <label
-                                        className="form-label">
-                                        {formElement.label}
-                                    </label>
+                            </div>
+                            <div className="row d-flex justify-content-center">
+                                <div className="col-md-3 g-3">
+                                    <label className="form-label">Correo</label>
                                     <input
                                         className="form-control"
-                                        type={formData[formElement.type]}
-                                        value={formData[formElement.key]}
-                                        onChange={(e) => {
-                                            handleChange(e.target.value, formElement.key)
-                                        }}
+                                        type="mail"
+                                        name="mail"
+                                        onChange={this.changeHandlerRegister}
+                                        required
                                     />
                                 </div>
-                            }
-                        })}
-                        <div className="pt-3 d-flex flex-row justify-content-center">
-                            <button type="submit" className="btn btn-primary" onClick={
-                                (e) => {
-                                    e.preventDefault();
-                                    submit()
-                                }}>
-                                Registrar
-                            </button>
-                        </div>
-                    </form>
+                                <div className="col-md-3 g-3">
+                                    <label className="form-label">Contraseña</label>
+                                    <input
+                                        className="form-control"
+                                        type="password"
+                                        name="password"
+                                        onChange={this.changeHandlerRegister}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="row d-flex justify-content-center">
+                                <div className="col-md-3 g-3 d-flex flex-row form-check form-switch">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        checked={this.state.type}
+                                        name="type"
+                                        onChange={this.changeHandlerRegister}
+                                    />
+                                    <label className="form-label">Soy dueño de un negocio</label>
+                                </div>
+                            </div>
+                            <div className="row-md-3 g-3 d-flex justify-content-center">
+                                <button type="submit" className="btn btn-primary">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-
-            <Commerce />
-        </React.Fragment>
-    );
-
+            </React.Fragment>
+        );
+    }
 }
 
 export default Register;

@@ -14,13 +14,13 @@ function Commerce() {
                     <div className="mb-3">
                         <div className="row g-3 d-flex flex-row align-items-center">
                             <div className="col-auto">
-                                <label for="commerceRegister" class="col-form-label" required>Nombre de tu negocio</label>
+                                <label className="col-form-label" required>Nombre de tu negocio</label>
                             </div>
                             <div className="col-auto">
                                 <input type="text" className="form-control" />
                             </div>
                             <div className="col-auto">
-                                <label for="lastNameRegister" class="col-form-label" required>Teléfono</label>
+                                <label className="col-form-label" required>Teléfono</label>
                             </div>
                             <div className="col-auto">
                                 <input type="number" className="form-control" required/>
@@ -30,11 +30,11 @@ function Commerce() {
                     <div className="mb-3">
                         <div className="row g-3 d-flex flex-row align-items-center">
                             <div className="col-auto">
-                                <label for="genderRegister" class="col-form-label">Categoria</label>
+                                <label  className="col-form-label">Categoria</label>
                             </div>
                             <div className="col-auto">
                                 <select className="form-select" required>
-                                    <option selected>Selecciona una categoria</option>
+                                    <option defaultValue="">Selecciona una categoria</option>
                                     <option value="1">Abarrotes</option>
                                     <option value="2">Clínica y/o farmacia</option>
                                     <option value="3">Estética</option>
@@ -49,12 +49,12 @@ function Commerce() {
                                 </select>
                             </div>
                             <div className="col-auto">
-                                <label for="stateRegister" class="col-form-label">¿Dónde se ubica?</label>
+                                <label className="col-form-label">¿Dónde se ubica?</label>
                             </div>
                             <div className="col-auto">
                                 <div className="col-auto">
                                     <select className="form-select" required>
-                                        <option selected>Selecciona tu estado</option>
+                                        <option defaultValue="">Selecciona tu estado</option>
                                         <option value="Aguascalientes">Aguascalientes</option>
                                         <option value="Baja California">Baja California</option>
                                         <option value="Baja California Sur">Baja California Sur</option>
@@ -94,22 +94,22 @@ function Commerce() {
 
                     </div>
                     <div className="mb-3">
-                    <label for="descriptionCommerce" className="form-label">Descripción</label>
+                    <label  className="form-label">Descripción</label>
                     <div className="form-floating">
                         <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
-                        <label for="floatingTextarea">Agrega una breve descripción de tu negocio</label>
+                        <label className="form-label">Agrega una breve descripción de tu negocio</label>
                     </div>
                     </div>
                     <div className="mb-3">
                         <div className="row g-3 d-flex flex-row align-items-center">
                             <div className="col-auto">
-                                <label for="emailRegister" className="form-label">Correo</label>
+                                <label className="form-label">Correo</label>
                             </div>
                             <div className="col-auto">
                                 <input type="email" className="form-control" id="emailCommerce" />
                             </div>
                             <div className="col-auto">
-                                <label for="passwordRegister" className="form-label">Página web</label>
+                                <label className="form-label">Página web</label>
                             </div>
                             <div className="col-auto">
                                 <input type="url" className="form-control" id="linkCommerce" />
@@ -119,11 +119,11 @@ function Commerce() {
                     <div className="mb-3">
                         <div className="row g-3 d-flex flex-row align-items-center">
                             <div className="col-auto">
-                                <label for="genderRegister" class="col-form-label">¿Cuánto vale lo que ofreces?</label>
+                                <label className="col-form-label">¿Cuánto vale lo que ofreces?</label>
                             </div>
                             <div className="col-auto">
                                 <select className="form-select" required>
-                                    <option selected>Selecciona una rango de precios</option>
+                                    <option defaultValue="">Selecciona una rango de precios</option>
                                     <option value="1">$1-$100</option>
                                     <option value="2">$1-$1000</option>
                                     <option value="3">$50-$500</option>
