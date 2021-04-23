@@ -42,39 +42,6 @@ const states = [
 const Nav = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => false);
 
-    const [name, setName] =useState('');
-    const [lastname,setLastName] = useState('');
-    const [gender, setGender] = useState('');
-    const [usrState,setUsrState]= useState('');
-    const [mail,setMail]=useState('');
-    const [password,setPassword] =useState('');
-    const [type,setType]=useState(false);
-    
-    const submitHandlerRegister = event => {
-        event.preventDefault();
-        let name = state.name;
-        let lastname = state.lastname;
-        let gender = state.gender;
-        let state = state.usrState;
-        let mail = state.mail;
-        let password = state.password;
-        let type = state.type;
-        console.log(name,lastname,gender,state,mail,password,type);
-    }
-
-    const changeHandlerRegister = event => {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        switch(name){
-            case 'name':
-                setName(value);
-            break;
-        }
-        this.setState({ [name]: value });
-    }
-
-
     return (
         <ul className="navbar-nav me-auto ms-auto mb-2 mb-lg-0 d-flex justify-content-between">
             <li className="nav-item me-4">
@@ -99,7 +66,7 @@ const Nav = () => {
             </li>
             <li className="nav-item me-4">
                 <Link className="nav-link" to="/register">
-                    Registrar Negocio
+                    Registrarte
                 </Link>
             </li>
             <li className="nav-item me-4 dropdown">
