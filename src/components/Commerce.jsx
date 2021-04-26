@@ -1,24 +1,31 @@
 import React from 'react';
 
-function Commerce() {
+
+function Commerce(props) {
+    
+
+    console.log("props ", props);
     return (
         <div className="pt-3 mb-3 container-fluid d-flex flex-column">
             <div className="d-flex justify-content-center">
-                <h1>Gracias por registrarte Fulanito</h1>
+                <h1>Gracias por registrarte {props.name}
+                    </h1>
             </div>
             <div className="mb-3 d-flex justify-content-center">
-                <h2>Ahora registraremos tu negocio</h2>
+                <h2>¡Ahora registraremos tu negocio!</h2>
             </div>
-            <div className="pt-5 container-fluid d-flex justify-content-center">
-                <form>
-                    <div className="mb-3">
-                        <div className="row g-3 d-flex flex-row align-items-center">
-                            <div className="col-auto">
-                                <label className="col-form-label" required>Nombre de tu negocio</label>
-                            </div>
-                            <div className="col-auto">
-                                <input type="text" className="form-control" />
-                            </div>
+            <div className="m-4 pt-4 container-fluid">
+                <form className="row g-3 d-flex flex-column" onSubmit={props.submitHandlerCommerce}>
+                    <div className="row d-flex justify-content-center">
+                        <div className="col-md-3 g-3">
+                            <label className="col-form-label" required>Nombre de tu negocio</label>
+                            <input 
+                                type="text" 
+                                className="form-control"
+                                name="negocio"
+                                value={props.negocio}
+                                onChange={props.changeHandlerRegister}
+                                required />
                             <div className="col-auto">
                                 <label className="col-form-label" required>Teléfono</label>
                             </div>

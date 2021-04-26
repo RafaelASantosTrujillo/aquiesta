@@ -109,20 +109,20 @@ function Register(props) {
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [type, setType] = useState(false);
-    const [form,setForm] =useState(false);
+    const [form, setForm] = useState(false);
     /* estado para registro de Negocio*/
-    const [negocio,setNegocio] = useState('');
-    const [phone,setPhone] = useState('');
-    const [category,setCategory] = useState('');
-    const [state,setState] = useState('');
-    const [desc,setDesc] = useState('');
-    const [mailNeg,setMailNeg] = useState('');
-    const [web,setWeb] = useState('');
-    const [price,setPrice] = useState('');
+    const [negocio, setNegocio] = useState('');
+    const [phone, setPhone] = useState('');
+    const [category, setCategory] = useState('');
+    const [state, setState] = useState('');
+    const [desc, setDesc] = useState('');
+    const [mailNeg, setMailNeg] = useState('');
+    const [web, setWeb] = useState('');
+    const [price, setPrice] = useState('');
 
     const submitHandlerRegister = () => {
         console.log(name, lastname, gender, usrState, mail, password, type);
-        if(type === true){
+        if (type === true) {
             setForm(true);
         }
     }
@@ -134,40 +134,77 @@ function Register(props) {
         switch (input) {
             case 'name':
                 setName(value);
-                console.log("nombre es ",name);
+                console.log("nombre es ", name);
                 break;
             case 'lastname':
                 setLastName(value);
-                console.log("apellido es ",lastname);
+                console.log("apellido es ", lastname);
                 break;
             case 'gender':
                 setGender(value);
-                console.log("genero es ",gender);
+                console.log("genero es ", gender);
                 break;
             case 'usrState':
                 setUsrState(value);
-                console.log("estado es ",usrState);
+                console.log("estado es ", usrState);
                 break;
             case 'mail':
                 setMail(value);
-                console.log("correo es",mail);
+                console.log("correo es", mail);
                 break;
             case 'password':
                 setPassword(value);
-                console.log("contraseña ",password);
+                console.log("contraseña ", password);
                 break;
             case 'type':
                 setType(value);
-                console.log("typo ",type);
+                console.log("typo ", type);
+                break;
+                /*Negocio */
+            case 'negocio':
+                setName(value);
+                console.log("nombre es ", negocio);
+                break;
+            case 'phone':
+                setLastName(value);
+                console.log("numero es ", phone);
+                break;
+            case 'category':
+                setGender(value);
+                console.log("categoria es ", category);
+                break;
+            case 'state':
+                setUsrState(value);
+                console.log("estado es ", state);
+                break;
+            case 'desc':
+                setMail(value);
+                console.log("descripcion es", desc);
+                break;
+            case 'mailNeg':
+                setPassword(value);
+                console.log("mail es ", mailNeg);
+                break;
+            case 'web':
+                setType(value);
+                console.log("web es ", web);
+                break;
+            case 'price':
+                setType(value);
+                console.log("rango de precio es ", price);
                 break;
         }
     }
 
-    const usrName = () => {
+    const usrName = () =>  {
         return name;
     }
 
-    if (form  === false) {
+    const submitHandlerCommerce = () => {
+        console.log(negocio, phone, category, state, desc, mailNeg, web, price);
+    }
+
+    if (form === false) {
         return (
             <React.Fragment>
                 <div className="pt-3 mb-3 ms-5  container-fluid d-flex flex-column">
@@ -238,7 +275,7 @@ function Register(props) {
                                     <label className="form-label">Correo</label>
                                     <input
                                         className="form-control"
-                                        type="mail"
+                                        type="email"
                                         name="mail"
                                         value={mail}
                                         onChange={changeHandlerRegister}
@@ -277,14 +314,23 @@ function Register(props) {
                 </div>
             </React.Fragment>
         );
-    }else {
-        return(
-        <Commerce />
+    } else {
+        return (
+            <Commerce 
+                usrName ={usrName}
+                name={name}
+                submitHandlerCommerce ={submitHandlerCommerce}
+                changeHandlerRegister={changeHandlerRegister}
+                />
         );
     }
 }
 
-Register.PropTypes ={
-    usrName: PropTypes.func.isRequired
+Register.propTypes = {
+    name: PropTypes.string,
+    usrName: PropTypes.func,
+    submitHandlerCommerce: PropTypes.func,
+    changeHandlerRegister: PropTypes.func,
 }
+
 export default Register;
