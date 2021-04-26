@@ -3,6 +3,7 @@ import DropdownItem from "./DropdownItem";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { Link } from 'react-router-dom';
 import "../css/nav.css";
+import { logDOM } from "@testing-library/dom";
 
 const states = [
     "Aguascalientes",
@@ -42,29 +43,39 @@ const states = [
 const Nav = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => false);
 
+    const itemActive  = e => {
+        const anterior = document.querySelector('.active');
+        if(anterior)
+            anterior.classList.remove('active');
+            console.log(`anterior: ${anterior.target}`);
+        e.target.classList.add('active')
+        console.log(e.target);
+    }
+
     return (
+        
         <ul className="navbar-nav me-auto ms-auto mb-2 mb-lg-0 d-flex justify-content-between align-items-center mr-auto ml-auto">
             <li className="nav-item mr-3">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link" onClick={itemActive} aria-current="page" to="/">
                     Inicio
                 </Link>
             </li>
             <li className="nav-item mr-3">
-                <Link className="nav-link" to="/directory">
+                <Link className="nav-link" to="/directory" onClick={itemActive}>
                     Directorio
                 </Link>
             </li>
             <li className="nav-item mr-3">
-                <Link className="nav-link" to="/categories">
+                <Link className="nav-link" to="/categories" onClick={itemActive}>
                     Categorias
                 </Link>
             </li>
             <li className="nav-item mr-3">
-                <Link className="nav-link" to="/featured">
+                <Link className="nav-link" to="/featured" onClick={itemActive}>
                     Destacados
                 </Link>
             </li>
-            <li className="nav-item mr-3">
+            <li className="nav-item mr-3" onClick={itemActive}>
                 <Link className="nav-link" to="/register">
                     Registrar Negocio
                 </Link>
