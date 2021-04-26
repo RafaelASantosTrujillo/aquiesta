@@ -47,9 +47,7 @@ const Nav = () => {
         const anterior = document.querySelector('.active');
         if(anterior)
             anterior.classList.remove('active');
-            console.log(`anterior: ${anterior.target}`);
         e.target.classList.add('active')
-        console.log(e.target);
     }
 
     return (
