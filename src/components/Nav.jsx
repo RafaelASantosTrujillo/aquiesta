@@ -54,7 +54,7 @@ const Nav = () => {
         
         <ul className="navbar-nav me-auto ms-auto mb-2 mb-lg-0 d-flex justify-content-between align-items-center mr-auto ml-auto">
             <li className="nav-item mr-3">
-                <Link className="nav-link" onClick={itemActive} aria-current="page" to="/">
+                <Link className="nav-link active" onClick={itemActive} aria-current="page" to="/">
                     Inicio
                 </Link>
             </li>
