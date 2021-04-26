@@ -43,33 +43,33 @@ const Nav = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => false);
 
     return (
-        <ul className="navbar-nav me-auto ms-auto mb-2 mb-lg-0 d-flex justify-content-between">
-            <li className="nav-item me-4">
+        <ul className="navbar-nav me-auto ms-auto mb-2 mb-lg-0 d-flex justify-content-between align-items-center mr-auto ml-auto">
+            <li className="nav-item mr-3">
                 <Link className="nav-link active" aria-current="page" to="/">
                     Inicio
                 </Link>
             </li>
-            <li className="nav-item me-4">
+            <li className="nav-item mr-3">
                 <Link className="nav-link" to="/directory">
                     Directorio
                 </Link>
             </li>
-            <li className="nav-item me-4">
+            <li className="nav-item mr-3">
                 <Link className="nav-link" to="/categories">
                     Categorias
                 </Link>
             </li>
-            <li className="nav-item me-4">
+            <li className="nav-item mr-3">
                 <Link className="nav-link" to="/featured">
                     Destacados
                 </Link>
             </li>
-            <li className="nav-item me-4">
+            <li className="nav-item mr-3">
                 <Link className="nav-link" to="/register">
                     Registrar Negocio
                 </Link>
             </li>
-            <li className="nav-item me-4 dropdown">
+            <li className="nav-item mr-3 dropdown">
                 <Link
                     className="nav-link dropdown-toggle"
                     to="/"
@@ -89,7 +89,7 @@ const Nav = () => {
                     })}
                 </ul>
             </li>
-            <li className="nav-item me-4">
+            <li className="nav-item">
                 <DarkModeToggle
                     onChange={setIsDarkMode}
                     checked={isDarkMode}
