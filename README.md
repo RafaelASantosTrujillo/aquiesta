@@ -94,8 +94,8 @@ Para tener los detalles de los usuarios registrados se requiere:
 • PIZZERÍAS
 • RESTAURANTES
 • TAQUERÍAS
-• TIENDAS DE AUTOSERVICIO
-• UNIVERSIDADES
+• ESCUELAS Y GUARDERÍAS
+• MASCOTAS
 
 - *Negocio*: Se refiere a todos los negocios. (id, nombreNegocio, ubicación, servicio, precio, contacto, calificación).
 - *Usuario administrador*: Un administrador puede crear, modificar y eliminar información de negocios y de los usuarios.
