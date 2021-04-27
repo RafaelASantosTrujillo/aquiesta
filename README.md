@@ -94,8 +94,8 @@ Para tener los detalles de los usuarios registrados se requiere:
 • PIZZERÍAS
 • RESTAURANTES
 • TAQUERÍAS
-• TIENDAS DE AUTOSERVICIO
-• UNIVERSIDADES
+• ESCUELAS Y GUARDERÍAS
+• MASCOTAS
 
 - *Negocio*: Se refiere a todos los negocios. (id, nombreNegocio, ubicación, servicio, precio, contacto, calificación).
 - *Usuario administrador*: Un administrador puede crear, modificar y eliminar información de negocios y de los usuarios.
@@ -107,9 +107,9 @@ Para tener los detalles de los usuarios registrados se requiere:
 - *Negocio*: agregarNegocio, modificarNegocio, eliminarNegocio, consultarNegocios y listaNegocio
 - *Usuario administrador*: agregarUsuario, modificarUsuario, consultarUsuarios, eliminarUsuario, agregarNegocio, modificarNegocio, consultarNegocio, eliminarNegocio y login
 
-## Prototipo de la Interfaz (versión 1) 🌐
-Por el momento las secciones que están activas en el prototipo son "Seleccionar Estado" y la opción del estado de Morelos.
-https://xd.adobe.com/view/87e4f1f3-c5d6-462c-635b-8756d4931a26-f1d5/
+## Prototipo de la Interfaz (versión 2) 🌐
+Por el momento las secciones que están activas en el prototipo son "Seleccionar Estado" y la opción del estado de Morelos, la "Categoría Restaurantes" y la sección de "Destacados".
+https://xd.adobe.com/view/4df42d3d-e2e4-4a18-6527-e6c7a3e38f01-3bc5/
 
 ## Github-pages
 https://rafaelasantostrujillo.github.io/aquiesta
