@@ -160,7 +160,7 @@ function Register(props) {
                 setType(value);
                 console.log("typo ", type);
                 break;
-                /*Negocio */
+            /*Negocio */
             case 'negocio':
                 setName(value);
                 console.log("nombre es ", negocio);
@@ -194,10 +194,6 @@ function Register(props) {
                 console.log("rango de precio es ", price);
                 break;
         }
-    }
-
-    const usrName = () =>  {
-        return name;
     }
 
     const submitHandlerCommerce = () => {
@@ -239,35 +235,48 @@ function Register(props) {
                                         required
                                     />
                                 </div>
+
                             </div>
-                            <div className="row d-flex justify-content-center">
-                                <div className="col-md-3 g-3">
-                                    <label className="form-label"> Género </label>
-                                    <select value={gender}
-                                        className="form-select" onChange={changeHandlerRegister}
-                                        name="gender" required>
-                                        <option defaultValue>Selecciona tu género</option>
-                                        <option value="femenino"> Femenino </option>
-                                        <option value="masculino">Masculino</option>
-                                    </select>
+                            <div className="pt-3 g-3 row d-flex justify-content-center">
+                                <div className="col-md-3">
+                                    <div className="flex-row">
+                                        <label className="form-label"> Género </label>
+                                    </div>
+                                    <div className="flex-row ">
+                                        <select value={gender}
+                                            className="form-select"
+                                            onChange={changeHandlerRegister}
+                                            name="gender"
+                                            required>
+                                            <option defaultValue>Selecciona tu género</option>
+                                            <option value="femenino"> Femenino </option>
+                                            <option value="masculino">Masculino</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div className="col-md-3 g-3">
-                                    <label className="form-label"> Estado </label>
-                                    <select value={usrState}
-                                        className="form-select" onChange={changeHandlerRegister}
-                                        name="usrState" required>
-                                        <option defaultValue>Selecciona tu estado</option>
-                                        {
-                                            states.map(state => {
-                                                return <option
-                                                    key={state.value}
-                                                    value={state.value}
-                                                >
-                                                    {state.label}
-                                                </option>
-                                            })
-                                        }
-                                    </select>
+                                    <div className="flex-row">
+                                        <label className="form-label"> Estado </label>
+                                    </div>
+                                    <div className="flex-row mb-3">
+                                        <select value={usrState}
+                                            className="form-select"
+                                            onChange={changeHandlerRegister}
+                                            name="usrState"
+                                            required>
+                                            <option defaultValue>Selecciona tu estado</option>
+                                            {
+                                                states.map(state => {
+                                                    return <option
+                                                        key={state.value}
+                                                        value={state.value}
+                                                    >
+                                                        {state.label}
+                                                    </option>
+                                                })
+                                            }
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row d-flex justify-content-center">
@@ -294,8 +303,8 @@ function Register(props) {
                                     />
                                 </div>
                             </div>
-                            <div className="row d-flex justify-content-center">
-                                <div className="col-md-3 g-3 d-flex flex-row form-check form-switch">
+                            <div className="pt-3 row d-flex justify-content-center">
+                                <div className="g-3  form-check form-switch">
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
@@ -306,7 +315,7 @@ function Register(props) {
                                     <label className="form-label">Soy dueño de un negocio</label>
                                 </div>
                             </div>
-                            <div className="row-md-3 g-3 d-flex justify-content-center">
+                            <div className="pt-3 row-md-3 g-3 d-flex justify-content-center">
                                 <button type="submit" className="btn btn-primary">Registrar</button>
                             </div>
                         </form>
@@ -316,21 +325,20 @@ function Register(props) {
         );
     } else {
         return (
-            <Commerce 
-                usrName ={usrName}
+            <Commerce
                 name={name}
-                submitHandlerCommerce ={submitHandlerCommerce}
+                submitHandlerCommerce={submitHandlerCommerce}
                 changeHandlerRegister={changeHandlerRegister}
-                />
+            />
         );
     }
 }
 
 Register.propTypes = {
     name: PropTypes.string,
-    usrName: PropTypes.func,
     submitHandlerCommerce: PropTypes.func,
     changeHandlerRegister: PropTypes.func,
+    negocio: PropTypes.string
 }
 
 export default Register;
