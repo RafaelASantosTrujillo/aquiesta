@@ -108,8 +108,8 @@ Para tener los detalles de los usuarios registrados se requiere:
 - *Usuario administrador*: agregarUsuario, modificarUsuario, consultarUsuarios, eliminarUsuario, agregarNegocio, modificarNegocio, consultarNegocio, eliminarNegocio y login
 
 ## Prototipo de la Interfaz (versión 2) 🌐
-Por el momento las secciones que están activas en el prototipo son "Seleccionar Estado" y la opción del estado de Morelos, la "Categoría Restaurantes", "Categoría Mascotas" y la sección de "Destacados".
-https://xd.adobe.com/view/4df42d3d-e2e4-4a18-6527-e6c7a3e38f01-3bc5/
+Por el momento las secciones que están activas en el prototipo son "Seleccionar Estado" y la opción del estado de Morelos, la "Categoría Restaurantes", "Categoría Mascotas", "Categoría Taquerías", "Categoría Pastelerías" y la sección de "Destacados".
+https://xd.adobe.com/view/b180bac8-fd0f-4c74-74fa-ec745f064f9c-c7b1/
 
 ## Github-pages
 https://rafaelasantostrujillo.github.io/aquiesta
