@@ -75,7 +75,7 @@ const Nav = () => {
             </li>
             {/* <li className="nav-item mr-3" onClick={itemActive}>
                 <Link className="nav-link" to="/register">
-                    Registrar Negocio
+                    Registrarte
                 </Link>
             </li> */}
             <li className="nav-item mr-3 dropdown">

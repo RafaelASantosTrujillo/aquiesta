@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import Commerce from "./Commerce";
 
 let states = [
@@ -99,43 +100,107 @@ let states = [
 ]
 
 
-class Register extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            lastname: '',
-            gender: '',
-            usrState: '',
-            mail: '',
-            password: '',
-            type: true,
-        };
+function Register(props) {
+    /*estado para registro de Usuarios*/
+    const [name, setName] = useState('');
+    const [lastname, setLastName] = useState('');
+    const [gender, setGender] = useState('');
+    const [usrState, setUsrState] = useState('');
+    const [mail, setMail] = useState('');
+    const [password, setPassword] = useState('');
+    const [type, setType] = useState(false);
+    const [form, setForm] = useState(false);
+    /* estado para registro de Negocio*/
+    const [negocio, setNegocio] = useState('');
+    const [phone, setPhone] = useState('');
+    const [category, setCategory] = useState('');
+    const [state, setState] = useState('');
+    const [desc, setDesc] = useState('');
+    const [mailNeg, setMailNeg] = useState('');
+    const [web, setWeb] = useState('');
+    const [price, setPrice] = useState('');
 
-        this.changeHandlerRegister = this.changeHandlerRegister.bind(this);
-        this.submitHandlerRegister = this.submitHandlerRegister.bind(this);
+    const submitHandlerRegister = () => {
+        console.log(name, lastname, gender, usrState, mail, password, type);
+        if (type === true) {
+            setForm(true);
+        }
     }
 
-    submitHandlerRegister = (event) => {
-        event.preventDefault();
-        let name = this.state.name;
-        let lastname = this.state.lastname;
-        let gender = this.state.gender;
-        let state = this.state.usrState;
-        let mail = this.state.mail;
-        let password = this.state.password;
-        let type = this.state.type;
-        console.log(this.state);
-    }
-
-    changeHandlerRegister = (event) => {
+    const changeHandlerRegister = (event) => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        this.setState({ [name]: value });
+        const input = target.name;
+        switch (input) {
+            case 'name':
+                setName(value);
+                console.log("nombre es ", name);
+                break;
+            case 'lastname':
+                setLastName(value);
+                console.log("apellido es ", lastname);
+                break;
+            case 'gender':
+                setGender(value);
+                console.log("genero es ", gender);
+                break;
+            case 'usrState':
+                setUsrState(value);
+                console.log("estado es ", usrState);
+                break;
+            case 'mail':
+                setMail(value);
+                console.log("correo es", mail);
+                break;
+            case 'password':
+                setPassword(value);
+                console.log("contraseña ", password);
+                break;
+            case 'type':
+                setType(value);
+                console.log("typo ", type);
+                break;
+            /*Negocio */
+            case 'negocio':
+                setName(value);
+                console.log("nombre es ", negocio);
+                break;
+            case 'phone':
+                setLastName(value);
+                console.log("numero es ", phone);
+                break;
+            case 'category':
+                setGender(value);
+                console.log("categoria es ", category);
+                break;
+            case 'state':
+                setUsrState(value);
+                console.log("estado es ", state);
+                break;
+            case 'desc':
+                setMail(value);
+                console.log("descripcion es", desc);
+                break;
+            case 'mailNeg':
+                setPassword(value);
+                console.log("mail es ", mailNeg);
+                break;
+            case 'web':
+                setType(value);
+                console.log("web es ", web);
+                break;
+            case 'price':
+                setType(value);
+                console.log("rango de precio es ", price);
+                break;
+        }
     }
 
-    render() {
+    const submitHandlerCommerce = () => {
+        console.log(negocio, phone, category, state, desc, mailNeg, web, price);
+    }
+
+    if (form === false) {
         return (
             <React.Fragment>
                 <div className="pt-3 mb-3 ms-5  container-fluid d-flex flex-column">
@@ -146,7 +211,7 @@ class Register extends React.Component {
                         <h2>Queremos que te unas a nuestra comunidad</h2>
                     </div>
                     <div className="m-4 pt-4 container-fluid">
-                        <form className="row g-3 d-flex flex-column" onSubmit={this.submitHandlerRegister}>
+                        <form className="row g-3 d-flex flex-column" onSubmit={submitHandlerRegister}>
                             <div className="row d-flex justify-content-center">
                                 <div className="col-md-3 g-3">
                                     <label className="form-label">Nombre</label>
@@ -154,8 +219,8 @@ class Register extends React.Component {
                                         className="form-control"
                                         type="text"
                                         name="name"
-                                        value={this.state.name}
-                                        onChange={this.changeHandlerRegister}
+                                        value={name}
+                                        onChange={changeHandlerRegister}
                                         required
                                     />
                                 </div>
@@ -165,40 +230,53 @@ class Register extends React.Component {
                                         className="form-control"
                                         type="text"
                                         name="lastname"
-                                        value={this.state.lastname}
-                                        onChange={this.changeHandlerRegister}
+                                        value={lastname}
+                                        onChange={changeHandlerRegister}
                                         required
                                     />
                                 </div>
+
                             </div>
-                            <div className="row d-flex justify-content-center">
-                                <div className="col-md-3 g-3">
-                                    <label className="form-label"> Género </label>
-                                    <select value={this.state.gender}
-                                        className="form-select" onChange={this.changeHandlerRegister}
-                                        name="gender" required>
-                                        <option defaultValue>Selecciona tu género</option>
-                                        <option value="femenino"> Femenino </option>
-                                        <option value="masculino">Masculino</option>
-                                    </select>
+                            <div className="pt-3 g-3 row d-flex justify-content-center">
+                                <div className="col-md-3">
+                                    <div className="flex-row">
+                                        <label className="form-label"> Género </label>
+                                    </div>
+                                    <div className="flex-row ">
+                                        <select value={gender}
+                                            className="form-select"
+                                            onChange={changeHandlerRegister}
+                                            name="gender"
+                                            required>
+                                            <option defaultValue>Selecciona tu género</option>
+                                            <option value="femenino"> Femenino </option>
+                                            <option value="masculino">Masculino</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div className="col-md-3 g-3">
-                                    <label className="form-label"> Estado </label>
-                                    <select value={this.state.usrState}
-                                        className="form-select" onChange={this.changeHandlerRegister} 
-                                        name="usrState" required>
-                                        <option defaultValue>Selecciona tu estado</option>
-                                        {
-                                            states.map(state => {
-                                                return <option
-                                                    key={state.value}
-                                                    value={state.value}
-                                                >
-                                                    {state.label}
-                                                </option>
-                                            })
-                                        }
-                                    </select>
+                                    <div className="flex-row">
+                                        <label className="form-label"> Estado </label>
+                                    </div>
+                                    <div className="flex-row mb-3">
+                                        <select value={usrState}
+                                            className="form-select"
+                                            onChange={changeHandlerRegister}
+                                            name="usrState"
+                                            required>
+                                            <option defaultValue>Selecciona tu estado</option>
+                                            {
+                                                states.map(state => {
+                                                    return <option
+                                                        key={state.value}
+                                                        value={state.value}
+                                                    >
+                                                        {state.label}
+                                                    </option>
+                                                })
+                                            }
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row d-flex justify-content-center">
@@ -206,9 +284,10 @@ class Register extends React.Component {
                                     <label className="form-label">Correo</label>
                                     <input
                                         className="form-control"
-                                        type="mail"
+                                        type="email"
                                         name="mail"
-                                        onChange={this.changeHandlerRegister}
+                                        value={mail}
+                                        onChange={changeHandlerRegister}
                                         required
                                     />
                                 </div>
@@ -218,24 +297,25 @@ class Register extends React.Component {
                                         className="form-control"
                                         type="password"
                                         name="password"
-                                        onChange={this.changeHandlerRegister}
+                                        value={password}
+                                        onChange={changeHandlerRegister}
                                         required
                                     />
                                 </div>
                             </div>
-                            <div className="row d-flex justify-content-center">
-                                <div className="col-md-3 g-3 d-flex flex-row form-check form-switch">
+                            <div className="pt-3 row d-flex justify-content-center">
+                                <div className="g-3  form-check form-switch">
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
-                                        checked={this.state.type}
+                                        checked={type}
                                         name="type"
-                                        onChange={this.changeHandlerRegister}
+                                        onChange={changeHandlerRegister}
                                     />
                                     <label className="form-label">Soy dueño de un negocio</label>
                                 </div>
                             </div>
-                            <div className="row-md-3 g-3 d-flex justify-content-center">
+                            <div className="pt-3 row-md-3 g-3 d-flex justify-content-center">
                                 <button type="submit" className="btn btn-primary">Registrar</button>
                             </div>
                         </form>
@@ -243,7 +323,22 @@ class Register extends React.Component {
                 </div>
             </React.Fragment>
         );
+    } else {
+        return (
+            <Commerce
+                name={name}
+                submitHandlerCommerce={submitHandlerCommerce}
+                changeHandlerRegister={changeHandlerRegister}
+            />
+        );
     }
+}
+
+Register.propTypes = {
+    name: PropTypes.string,
+    submitHandlerCommerce: PropTypes.func,
+    changeHandlerRegister: PropTypes.func,
+    negocio: PropTypes.string
 }
 
 export default Register;

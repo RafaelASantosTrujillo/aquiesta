@@ -1,38 +1,137 @@
 import React from 'react';
 
-function Commerce() {
+let states = [
+    {
+        label: "Aguascalientes",
+        value: 'Aguascalientes'
+    }, {
+        label: "Baja California",
+        value: 'Baja California'
+    }, {
+        label: "Campeche",
+        value: 'Campeche'
+    }, {
+        label: "Chiapas",
+        value: 'Chiapas'
+    }, {
+        label: "Chihuahua",
+        value: 'Chihuahua'
+    }, {
+        label: "Ciudad de México",
+        value: 'Ciudad de México'
+    }, {
+        label: "Coahuila",
+        value: 'Coahuila'
+    }, {
+        label: "Colima",
+        value: 'Colima'
+    }, {
+        label: "Durango",
+        value: 'Durango'
+    }, {
+        label: "Estado de México",
+        value: 'Estado de México'
+    }, {
+        label: "Guanajuato",
+        value: 'Guanajuato'
+    }, {
+        label: "Guerrero",
+        value: 'Guerrero'
+    }, {
+        label: "Hidalgo",
+        value: 'Hidalgo'
+    }, {
+        label: "Jalisco",
+        value: 'Jalisco'
+    }, {
+        label: "Michoacán",
+        value: 'Michoacán'
+    }, {
+        label: "Morelos",
+        value: 'Morelos'
+    }, {
+        label: "Nayarit",
+        value: 'Nayarit'
+    }, {
+        label: "Nuevo León",
+        value: 'Nuevo León'
+    }, {
+        label: "Oaxaca",
+        value: 'Oaxaca'
+    }, {
+        label: "Puebla",
+        value: 'Puebla'
+    }, {
+        label: "Querétaro",
+        value: 'Querétaro'
+    }, {
+        label: "Quintana Roo",
+        value: 'Quintana Roo'
+    }, {
+        label: "San Luis Potosí",
+        value: 'San Luis Potosí'
+    }, {
+        label: "Sinaloa",
+        value: 'Sinaloa'
+    }, {
+        label: "Sonora",
+        value: 'Sonora'
+    }, {
+        label: "Tabasco",
+        value: 'Tabasco'
+    }, {
+        label: "Tamaulipas",
+        value: 'Tamaulipas'
+    }, {
+        label: "Tlaxcala",
+        value: 'Tlaxcala'
+    }, {
+        label: "Veracruz",
+        value: 'Veracruz'
+    }, {
+        label: "Yucatán",
+        value: 'Yucatán'
+    }, {
+        label: "Zacatecas",
+        value: 'Zacatecas'
+    }
+]
+
+function Commerce(props) {
+
+
+    console.log("props ", props);
     return (
         <div className="pt-3 mb-3 container-fluid d-flex flex-column">
             <div className="d-flex justify-content-center">
-                <h1>Gracias por registrarte Fulanito</h1>
+                <h1>Gracias por registrarte {props.name}
+                </h1>
             </div>
             <div className="mb-3 d-flex justify-content-center">
-                <h2>Ahora registraremos tu negocio</h2>
+                <h2>¡Ahora registraremos tu negocio!</h2>
             </div>
-            <div className="pt-5 container-fluid d-flex justify-content-center">
-                <form>
-                    <div className="mb-3">
-                        <div className="row g-3 d-flex flex-row align-items-center">
-                            <div className="col-auto">
-                                <label className="col-form-label" required>Nombre de tu negocio</label>
-                            </div>
-                            <div className="col-auto">
-                                <input type="text" className="form-control" />
-                            </div>
-                            <div className="col-auto">
-                                <label className="col-form-label" required>Teléfono</label>
-                            </div>
-                            <div className="col-auto">
-                                <input type="number" className="form-control" required/>
-                            </div>
+            <div className="m-4 pt-4 container-fluid">
+                <form className="row g-3 d-flex flex-column" onSubmit={props.submitHandlerCommerce}>
+                    <div className="row d-flex justify-content-center">
+                        <div className="col-md-3">
+                            <label className="col-form-label" required>Nombre de tu negocio</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                name="negocio"
+                                value={props.negocio}
+                                onChange={props.changeHandlerRegister}
+                                required />
                         </div>
-                    </div>
-                    <div className="mb-3">
-                        <div className="row g-3 d-flex flex-row align-items-center">
-                            <div className="col-auto">
-                                <label  className="col-form-label">Categoria</label>
+                        <div className="col-auto">
+                            <label className="col-form-label" required>Teléfono</label>
+                            <input type="number" className="form-control" required />
+                        </div>
+                        <div className="col-auto">
+                            <div className="flex-row">
+                                <label className="form-label">Categoria</label>
                             </div>
-                            <div className="col-auto">
+                            <div className="row-12 ">
                                 <select className="form-select" required>
                                     <option defaultValue="">Selecciona una categoria</option>
                                     <option value="1">Abarrotes</option>
@@ -48,92 +147,67 @@ function Commerce() {
                                     <option value="11">Otro</option>
                                 </select>
                             </div>
-                            <div className="col-auto">
-                                <label className="col-form-label">¿Dónde se ubica?</label>
-                            </div>
-                            <div className="col-auto">
-                                <div className="col-auto">
-                                    <select className="form-select" required>
-                                        <option defaultValue="">Selecciona tu estado</option>
-                                        <option value="Aguascalientes">Aguascalientes</option>
-                                        <option value="Baja California">Baja California</option>
-                                        <option value="Baja California Sur">Baja California Sur</option>
-                                        <option value="Campeche">Campeche</option>
-                                        <option value="Chiapas">Chiapas</option>
-                                        <option value="Chihuahua">Chihuahua</option>
-                                        <option value="CDMX">Ciudad de México</option>
-                                        <option value="Coahuila">Coahuila</option>
-                                        <option value="Colima">Colima</option>
-                                        <option value="Durango">Durango</option>
-                                        <option value="Estado de Mexico">Estado de México</option>
-                                        <option value="Guanajuato">Guanajuato</option>
-                                        <option value="Guerrero">Guerrero</option>
-                                        <option value="Hidalgo">Hidalgo</option>
-                                        <option value="Jalisco">Jalisco</option>
-                                        <option value="Michoacan">Michoacán</option>
-                                        <option value="Morelos">Morelos</option>
-                                        <option value="Nayarit">Nayarit</option>
-                                        <option value="Nuevo Leon">Nuevo León</option>
-                                        <option value="Oaxaca">Oaxaca</option>
-                                        <option value="Puebla">Puebla</option>
-                                        <option value="Queretaro">Querétaro</option>
-                                        <option value="Quintana Roo">Quintana Roo</option>
-                                        <option value="San Luis Potosi">San Luis Potosí</option>
-                                        <option value="Sinaloa">Sinaloa</option>
-                                        <option value="Sonora">Sonora</option>
-                                        <option value="Tabasco">Tabasco</option>
-                                        <option value="Tamaulipas">Tamaulipas</option>
-                                        <option value="Tlaxcala">Tlaxcala</option>
-                                        <option value="Veracruz">Veracruz</option>
-                                        <option value="Yucatan">Yucatán</option>
-                                        <option value="Zacatecas">Zacatecas</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="mb-3">
-                    <label  className="form-label">Descripción</label>
-                    <div className="form-floating">
-                        <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
-                        <label className="form-label">Agrega una breve descripción de tu negocio</label>
-                    </div>
-                    </div>
-                    <div className="mb-3">
-                        <div className="row g-3 d-flex flex-row align-items-center">
-                            <div className="col-auto">
-                                <label className="form-label">Correo</label>
-                            </div>
-                            <div className="col-auto">
-                                <input type="email" className="form-control" id="emailCommerce" />
-                            </div>
-                            <div className="col-auto">
-                                <label className="form-label">Página web</label>
-                            </div>
-                            <div className="col-auto">
-                                <input type="url" className="form-control" id="linkCommerce" />
-                            </div>
                         </div>
                     </div>
-                    <div className="mb-3">
-                        <div className="row g-3 d-flex flex-row align-items-center">
-                            <div className="col-auto">
-                                <label className="col-form-label">¿Cuánto vale lo que ofreces?</label>
+                    <div className="pt-3 row d-flex justify-content-center">
+                        <div className="col-auto">
+                            <div className="flex-row">
+                                <label className="form-label">¿Dónde se ubica?</label>
                             </div>
-                            <div className="col-auto">
-                                <select className="form-select" required>
-                                    <option defaultValue="">Selecciona una rango de precios</option>
-                                    <option value="1">$1-$100</option>
-                                    <option value="2">$1-$1000</option>
-                                    <option value="3">$50-$500</option>
-                                    <option value="4">$50-$1000</option>
-                                    <option value="5">$1-$2500</option>
-                                    <option value="6">$100-$5000</option>
-                                    <option value="7">$200-$2500</option>
-                                    <option value="8">Otro</option>
-                                    <option value="9">PReguntar por mensaje</option>
+                            <div className="flex-row ">
+                                <select className="form-select"
+                                    value={props.state}
+                                    onChange={props.changeHandlerRegister}
+                                    name="state"
+                                    required>
+                                    <option defaultValue="">Selecciona tu estado</option>
+                                    {
+                                        states.map(state => {
+                                            return <option
+                                                key={state.value}
+                                                value={state.value}
+                                            >
+                                                {state.label}
+                                            </option>
+                                        })
+                                    }
                                 </select>
+                            </div>
+                        </div>
+                        <div className="col-auto">
+                            <label className="form-label">Correo</label>
+                            <input type="email" className="form-control" id="emailCommerce" />
+                        </div>
+                        <div className="col-auto">
+                            <label className="form-label">Página web</label>
+                            <input type="url" className="form-control" id="linkCommerce" />
+                        </div>
+                    </div>
+                    <div className="pt-3 row d-flex justify-content-center">
+                        <div className="col-auto">
+                            <label className="form-label">Descripción</label>
+                            <div className="form-floating">
+                                <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
+                                <label className="form-label">Agrega una breve descripción de tu negocio</label>
+                            </div>
+                        </div>
+                        <div className="col-auto">
+                            <div className="flex-row">
+                            <label className="col-form-label">¿Cuánto vale lo que ofreces?</label>
+                            </div>
+                            <div className="flex-row ">
+                            <select className="form-select" required>
+                                <option defaultValue="">Selecciona una rango de precios</option>
+                                <option value="1">$1-$100</option>
+                                <option value="2">$1-$1000</option>
+                                <option value="3">$50-$500</option>
+                                <option value="4">$50-$1000</option>
+                                <option value="5">$1-$2500</option>
+                                <option value="6">$100-$5000</option>
+                                <option value="7">$200-$2500</option>
+                                <option value="8">Otro</option>
+                                <option value="9">PReguntar por mensaje</option>
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -142,7 +216,7 @@ function Commerce() {
                     </div>
                 </form>
             </div>
-        </div>
+        </div >
 
     )
 };
