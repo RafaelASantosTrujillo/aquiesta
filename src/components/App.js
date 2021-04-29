@@ -8,6 +8,7 @@ import Home from "./Home";
 import Category from "./Category";
 import Featured from "./Featured";
 import Register from "./Register";
+import Login from "./Login";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route exact path="/categories" component={Category} />
                     <Route exact path="/featured" component={Featured} />
                     <Route exact path="/register" component={Register} />
+                    <Route exact path="/login" component={Login} />
                     <Route component={NotFound} />
                 </Switch>
             </Layout>
