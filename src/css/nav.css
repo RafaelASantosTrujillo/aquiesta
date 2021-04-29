@@ -2,8 +2,3 @@
     max-height: 200px;
     overflow-x: hidden;
 }
-@media (min-width: 1400px) {
-    .nav-item {
-        gap: 8rem;
-    }
-}

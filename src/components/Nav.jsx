@@ -63,21 +63,21 @@ const Nav = () => {
                     Directorio
                 </Link>
             </li>
-            <li className="nav-item mr-3">
+            {/* <li className="nav-item mr-3">
                 <Link className="nav-link" to="/categories" onClick={itemActive}>
                     Categorias
                 </Link>
-            </li>
+            </li> */}
             <li className="nav-item mr-3">
                 <Link className="nav-link" to="/featured" onClick={itemActive}>
                     Destacados
                 </Link>
             </li>
-            <li className="nav-item mr-3" onClick={itemActive}>
+            {/* <li className="nav-item mr-3" onClick={itemActive}>
                 <Link className="nav-link" to="/register">
                     Registrar Negocio
                 </Link>
-            </li>
+            </li> */}
             <li className="nav-item mr-3 dropdown">
                 <Link
                     className="nav-link dropdown-toggle"

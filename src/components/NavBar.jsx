@@ -1,9 +1,8 @@
 import React from 'react';
 import Logo from '../img/logo-aqui-esta.svg';
 import Nav from './Nav';
-import FormSearch from './FormSearch';
+import FormLogIn from './FormLogIn';
 import { Link } from 'react-router-dom';
-import '../css/navbar.css';
 
 const NavBar = () => {
     return (
@@ -17,7 +16,7 @@ const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <Nav />
-                    <FormSearch />
+                    <FormLogIn />
                 </div>
             </div>
         </nav>
