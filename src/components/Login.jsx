@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 
 function Login (){
@@ -20,6 +21,15 @@ function Login (){
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
+                <div className="form-group">
+                    <div className="nav-item">
+                        <p>¿Eres nuevo?  
+                            <Link className="link-primary " to="/register">
+                        Registrate aquí
+                    </Link>
+                        </p>
+                    </div>
+                </div>
             </form>
         </div>
     )

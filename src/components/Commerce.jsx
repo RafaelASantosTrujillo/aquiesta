@@ -125,14 +125,23 @@ function Commerce(props) {
                         </div>
                         <div className="col-auto">
                             <label className="col-form-label" required>Teléfono</label>
-                            <input type="number" className="form-control" required />
+                            <input type="number" 
+                            className="form-control"
+                            name="phone"
+                            value={props.phone}
+                            onChange={props.changeHandlerRegister}
+                            required />
                         </div>
                         <div className="col-auto">
                             <div className="flex-row">
                                 <label className="form-label">Categoria</label>
                             </div>
                             <div className="row-12 ">
-                                <select className="form-select" required>
+                                <select className="form-select" 
+                                    onChange={props.changeHandlerRegister}
+                                    value={props.state}
+                                    name="category"
+                                    required>
                                     <option defaultValue="">Selecciona una categoria</option>
                                     <option value="1">Abarrotes</option>
                                     <option value="2">Clínica y/o farmacia</option>
@@ -176,19 +185,33 @@ function Commerce(props) {
                         </div>
                         <div className="col-auto">
                             <label className="form-label">Correo</label>
-                            <input type="email" className="form-control" id="emailCommerce" />
+                            <input type="email" 
+                                    className="form-control" 
+                                    name="mailNeg"
+                                    value={props.mailNeg}
+                                    onChange={props.changeHandlerRegister}
+                                     />
                         </div>
                         <div className="col-auto">
                             <label className="form-label">Página web</label>
-                            <input type="url" className="form-control" id="linkCommerce" />
+                            <input type="url" 
+                                    className="form-control" 
+                                    name="web"
+                                    value={props.web}
+                                    onChange={props.changeHandlerRegister}
+                                    />
                         </div>
                     </div>
                     <div className="pt-3 row d-flex justify-content-center">
-                        <div className="col-auto">
+                        <div className="col-md-4">
                             <label className="form-label">Descripción</label>
                             <div className="form-floating">
-                                <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
-                                <label className="form-label">Agrega una breve descripción de tu negocio</label>
+                                <textarea className="form-control"
+                                        placeholder="Describe brevemente tu negocio"  
+                                        name="desc"
+                                        value={props.desc}
+                                        onChange={props.changeHandlerRegister}
+                                        required/>
                             </div>
                         </div>
                         <div className="col-auto">
@@ -196,7 +219,11 @@ function Commerce(props) {
                             <label className="col-form-label">¿Cuánto vale lo que ofreces?</label>
                             </div>
                             <div className="flex-row ">
-                            <select className="form-select" required>
+                            <select className="form-select" 
+                                    name="price"
+                                    value={props.value}
+                                    onChange={props.changeHandlerRegister}
+                                    required>
                                 <option defaultValue="">Selecciona una rango de precios</option>
                                 <option value="1">$1-$100</option>
                                 <option value="2">$1-$1000</option>

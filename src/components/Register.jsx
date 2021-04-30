@@ -122,9 +122,11 @@ function Register(props) {
 
     const submitHandlerRegister = () => {
         console.log(name, lastname, gender, usrState, mail, password, type);
+        console.log(negocio, phone, category, state, desc, mailNeg, web, price);
         if (type === true) {
             setForm(true);
         }
+
     }
 
     const changeHandlerRegister = (event) => {
@@ -162,35 +164,35 @@ function Register(props) {
                 break;
             /*Negocio */
             case 'negocio':
-                setName(value);
+                setNegocio(value);
                 console.log("nombre es ", negocio);
                 break;
             case 'phone':
-                setLastName(value);
+                setPhone(value);
                 console.log("numero es ", phone);
                 break;
             case 'category':
-                setGender(value);
+                setCategory(value);
                 console.log("categoria es ", category);
                 break;
             case 'state':
-                setUsrState(value);
+                setState(value);
                 console.log("estado es ", state);
                 break;
             case 'desc':
-                setMail(value);
+                setDesc(value);
                 console.log("descripcion es", desc);
                 break;
             case 'mailNeg':
-                setPassword(value);
+                setMailNeg(value);
                 console.log("mail es ", mailNeg);
                 break;
             case 'web':
-                setType(value);
+                setWeb(value);
                 console.log("web es ", web);
                 break;
             case 'price':
-                setType(value);
+                setPrice(value);
                 console.log("rango de precio es ", price);
                 break;
         }
@@ -205,7 +207,7 @@ function Register(props) {
             <React.Fragment>
                 <div className="pt-3 mb-3 ms-5  container-fluid d-flex flex-column">
                     <div className="d-flex justify-content-center">
-                        <h1>Registrate</h1>
+                        <h1>¡Bienvenido!</h1>
                     </div>
                     <div className="mb-3 d-flex justify-content-center">
                         <h2>Queremos que te unas a nuestra comunidad</h2>
