@@ -10,7 +10,11 @@ import Featured from "./Featured";
 import Register from "./Register";
 import Login from "./Login";
 
+//URL del fake-backend
+const URL="http://localhost:4000/usuarios";
+
 function App() {
+
     return (
         <BrowserRouter>
             <Layout>

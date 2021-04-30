@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import Commerce from "./Commerce";
 
+//URL del fake-backend
+const URL = "http://localhost:4000/usuarios";
+
 let states = [
     {
         label: "Aguascalientes",
@@ -101,105 +104,111 @@ let states = [
 
 
 function Register(props) {
-    /*estado para registro de Usuarios*/
-    const [name, setName] = useState('');
-    const [lastname, setLastName] = useState('');
-    const [gender, setGender] = useState('');
-    const [usrState, setUsrState] = useState('');
-    const [mail, setMail] = useState('');
-    const [password, setPassword] = useState('');
-    const [type, setType] = useState(false);
+    /*Para ver si hay que registrar un Negocio*/
     const [form, setForm] = useState(false);
-    /* estado para registro de Negocio*/
-    const [negocio, setNegocio] = useState('');
-    const [phone, setPhone] = useState('');
-    const [category, setCategory] = useState('');
-    const [state, setState] = useState('');
-    const [desc, setDesc] = useState('');
-    const [mailNeg, setMailNeg] = useState('');
-    const [web, setWeb] = useState('');
-    const [price, setPrice] = useState('');
+    /*Negocio -BD*/
+    const [newNeg, setNewNeg] = useState({
+        negocio: '',
+        phone: '',
+        category: '',
+        state: '',
+        desc: '',
+        mailNeg: '',
+        web: '',
+        prince: ''
+    });
+    /*User - BD*/
+    const [newUser, setNewUser] = useState({
+        name: '',
+        lastname: '',
+        gender: '',
+        usrState: '',
+        mail: '',
+        password: '',
+        type: false
+    });
+    React.useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await fetch(URL);
+                const data = await response.json();
+                setNewUser(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        getData();
+    }, []);
 
-    const submitHandlerRegister = () => {
-        console.log(name, lastname, gender, usrState, mail, password, type);
-        console.log(negocio, phone, category, state, desc, mailNeg, web, price);
-        if (type === true) {
+    const goToBackend = (config, data) => {
+        return fetch(config.url, {
+            method: config.method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data ? JSON.stringify(data) : null
+        });
+    }
+
+    const submitHandlerRegister = async (newUser) => {
+        console.log(newUser);
+        const exists = newUser.find(e => newUser.mail === e.mail);
+        if (exists) {
+            alert(`${newUser.mail} ya existe!`)
+            return
+        }
+
+        const config = {
+            url: URL,
+            method: "POST"
+        };
+
+        const data = {
+            name: newUser.name,
+            lastname: newUser.lastname,
+            gender: newUser.gender,
+            usrState: newUser.usrState,
+            mail: newUser.mail,
+            password: newUser.password,
+            type: newUser.type
+        };
+
+        /*try {
+            const response = await goToBackend(config, data);
+            if (!response.ok) throw new Error("Response not ok");
+
+            const usr = await response.json();
+
+        } catch (error) {
+            console.log(error);
+        }*/
+
+        if (newUser.type === true) {
             setForm(true);
         }
 
     }
 
-    const changeHandlerRegister = (event) => {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const input = target.name;
-        switch (input) {
-            case 'name':
-                setName(value);
-                console.log("nombre es ", name);
-                break;
-            case 'lastname':
-                setLastName(value);
-                console.log("apellido es ", lastname);
-                break;
-            case 'gender':
-                setGender(value);
-                console.log("genero es ", gender);
-                break;
-            case 'usrState':
-                setUsrState(value);
-                console.log("estado es ", usrState);
-                break;
-            case 'mail':
-                setMail(value);
-                console.log("correo es", mail);
-                break;
-            case 'password':
-                setPassword(value);
-                console.log("contraseña ", password);
-                break;
-            case 'type':
-                setType(value);
-                console.log("typo ", type);
-                break;
-            /*Negocio */
-            case 'negocio':
-                setNegocio(value);
-                console.log("nombre es ", negocio);
-                break;
-            case 'phone':
-                setPhone(value);
-                console.log("numero es ", phone);
-                break;
-            case 'category':
-                setCategory(value);
-                console.log("categoria es ", category);
-                break;
-            case 'state':
-                setState(value);
-                console.log("estado es ", state);
-                break;
-            case 'desc':
-                setDesc(value);
-                console.log("descripcion es", desc);
-                break;
-            case 'mailNeg':
-                setMailNeg(value);
-                console.log("mail es ", mailNeg);
-                break;
-            case 'web':
-                setWeb(value);
-                console.log("web es ", web);
-                break;
-            case 'price':
-                setPrice(value);
-                console.log("rango de precio es ", price);
-                break;
-        }
+    const changeHandlerUser = (e) => {
+        (e.target.type === 'checkbox') ? setNewUser({...newUser,[e.target.name]: e.target.checked}) :
+                                        setNewUser({ ...newUser, [e.target.name]: e.target.value});
+        console.log(newUser);
+
+    }
+
+    const changeHandlerNeg = (e) => {
+        /*const target = event.target;
+            const value = target.type === 'checkbox' ? target.checked : target.value;
+            const input = target.name;*/
+        setNewNeg({
+            ...newNeg,
+            [e.target.name]: e.target.value
+        });
+        console.log(newNeg);
     }
 
     const submitHandlerCommerce = () => {
-        console.log(negocio, phone, category, state, desc, mailNeg, web, price);
+        //console.log(negocio, phone, category, state, desc, mailNeg, web, price);
     }
 
     if (form === false) {
@@ -221,8 +230,8 @@ function Register(props) {
                                         className="form-control"
                                         type="text"
                                         name="name"
-                                        value={name}
-                                        onChange={changeHandlerRegister}
+                                        value={newUser.name}
+                                        onChange={changeHandlerUser}
                                         required
                                     />
                                 </div>
@@ -232,8 +241,8 @@ function Register(props) {
                                         className="form-control"
                                         type="text"
                                         name="lastname"
-                                        value={lastname}
-                                        onChange={changeHandlerRegister}
+                                        value={newUser.lastname}
+                                        onChange={changeHandlerUser}
                                         required
                                     />
                                 </div>
@@ -245,9 +254,9 @@ function Register(props) {
                                         <label className="form-label"> Género </label>
                                     </div>
                                     <div className="flex-row ">
-                                        <select value={gender}
+                                        <select value={newUser.gender}
                                             className="form-select"
-                                            onChange={changeHandlerRegister}
+                                            onChange={changeHandlerUser}
                                             name="gender"
                                             required>
                                             <option defaultValue>Selecciona tu género</option>
@@ -261,9 +270,9 @@ function Register(props) {
                                         <label className="form-label"> Estado </label>
                                     </div>
                                     <div className="flex-row mb-3">
-                                        <select value={usrState}
+                                        <select value={newUser.usrState}
                                             className="form-select"
-                                            onChange={changeHandlerRegister}
+                                            onChange={changeHandlerUser}
                                             name="usrState"
                                             required>
                                             <option defaultValue>Selecciona tu estado</option>
@@ -288,8 +297,8 @@ function Register(props) {
                                         className="form-control"
                                         type="email"
                                         name="mail"
-                                        value={mail}
-                                        onChange={changeHandlerRegister}
+                                        value={newUser.mail}
+                                        onChange={changeHandlerUser}
                                         required
                                     />
                                 </div>
@@ -299,8 +308,8 @@ function Register(props) {
                                         className="form-control"
                                         type="password"
                                         name="password"
-                                        value={password}
-                                        onChange={changeHandlerRegister}
+                                        value={newUser.password}
+                                        onChange={changeHandlerUser}
                                         required
                                     />
                                 </div>
@@ -310,9 +319,9 @@ function Register(props) {
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
-                                        checked={type}
+                                        checked={newUser.type}
                                         name="type"
-                                        onChange={changeHandlerRegister}
+                                        onChange={changeHandlerUser}
                                     />
                                     <label className="form-label">Soy dueño de un negocio</label>
                                 </div>
@@ -328,19 +337,19 @@ function Register(props) {
     } else {
         return (
             <Commerce
-                name={name}
+                name={newUser.name}
                 submitHandlerCommerce={submitHandlerCommerce}
-                changeHandlerRegister={changeHandlerRegister}
+                changeHandlerRegister={changeHandlerNeg}
             />
         );
     }
 }
 
 Register.propTypes = {
-    name: PropTypes.string,
+    newUser: PropTypes.object,
     submitHandlerCommerce: PropTypes.func,
-    changeHandlerRegister: PropTypes.func,
-    negocio: PropTypes.string
+    changeHandlerNeg: PropTypes.func,
+    newNeg: PropTypes.object
 }
 
 export default Register;
