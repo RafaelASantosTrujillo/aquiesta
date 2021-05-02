@@ -16,9 +16,9 @@ function App() {
             <Layout>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route exact path="/directory" component={Main} />
+                    <Route exact path="/directory" component={Featured} />
                     <Route exact path="/categories" component={Category} />
-                    <Route exact path="/featured" component={Featured} />
+                    <Route exact path="/featured" component={Main} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
                     <Route component={NotFound} />

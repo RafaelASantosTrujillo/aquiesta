@@ -86,7 +86,7 @@ const Nav = () => {
                     {states.map((state) => {
                         return <DropdownItem
                             key={state.id} 
-                            state={state.name}      
+                            name={state.name}      
                         />;
                     })}
                 </ul>

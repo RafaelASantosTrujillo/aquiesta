@@ -16,9 +16,7 @@ const NavBar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <Nav />
-                </div>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <Link className="btn btn-outline-primary btn-image px-3" to="/login">
+                    <Link className="btn btn-outline-primary btn-image px-5" to="/login">
                         Inicia sesión
                     </Link>
                 </div>
