@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../img/logo-aqui-esta.svg';
 import Nav from './Nav';
 import { Link } from 'react-router-dom';
+import '../css/navbar.css';
 
 const NavBar = () => {
     return (
@@ -17,7 +18,7 @@ const NavBar = () => {
                     <Nav />
                 </div>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <Link className="btn btn-outline-primary btn-image px-3 mr-2 " to="/login">
+                    <Link className="btn btn-outline-primary btn-image px-3" to="/login">
                         Inicia sesión
                     </Link>
                 </div>

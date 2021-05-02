@@ -133,6 +133,7 @@ function Register(props) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const input = target.name;
+        console.log(target);
         switch (input) {
             case 'name':
                 setName(value);
@@ -195,6 +196,8 @@ function Register(props) {
                 setPrice(value);
                 console.log("rango de precio es ", price);
                 break;
+            default:
+                console.log('unknowing input');
         }
     }
 

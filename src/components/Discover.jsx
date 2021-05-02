@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/discover.css';
 
 
@@ -35,7 +36,11 @@ const Discover = () => {
                     </div>
                     
                     <div className="container-btn-ver-mas position-absolute d-flex justify-content-end align-items-end">
-                        <a href="#" className="btn btn-outline-light rounded-pill carousel-btn ">Ver Más</a>
+                        <Link className="btn btn-outline-light rounded-pill carousel-btn"
+                            to="/featured"
+                        >
+                            Ver Más
+                        </Link>
                     </div>
                 </div>
             </div>

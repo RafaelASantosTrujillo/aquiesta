@@ -3,41 +3,41 @@ import DropdownItem from "./DropdownItem";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { Link } from 'react-router-dom';
 import "../css/nav.css";
-import { logDOM } from "@testing-library/dom";
+// import { logDOM } from "@testing-library/dom";
 
 const states = [
-    "Aguascalientes",
-    "Baja California",
-    "Baja California Sur",
-    "Campeche",
-    "Chiapas",
-    "Chihuahua",
-    "Ciudad de México",
-    "Coahuila",
-    "Colima",
-    "Durango",
-    "Estado de México",
-    "Guanajuato",
-    "Guerrero",
-    "Hidalgo",
-    "Jalisco",
-    "Michoacán",
-    "Morelos",
-    "Nayarit",
-    "Nuevo León",
-    "Oaxaca",
-    "Puebla",
-    "Querétaro",
-    "Quintana Roo",
-    "San Luis Potosí",
-    "Sinaloa",
-    "Sonora",
-    "Tabasco",
-    "Tamaulipas",
-    "Tlaxcala",
-    "Veracruz",
-    "Yucatán",
-    "zacatecas",
+    { id: 1, name: "Aguascalientes"},
+    { id: 2, name: "Baja California"},
+    { id: 3, name: "Baja California Sur"},
+    { id: 4, name: "Campeche"},
+    { id: 5, name: "Chiapas"},
+    { id: 6, name: "Chihuahua"},
+    { id: 7, name: "Ciudad de México"},
+    { id: 8, name: "Coahuila"},
+    { id: 9, name: "Colima"},
+    { id: 10, name: "Durango"},
+    { id: 11, name: "Estado de México"},
+    { id: 12, name: "Guanajuato"},
+    { id: 13, name: "Guerrero"},
+    { id: 14, name: "Hidalgo"},
+    { id: 15, name: "Jalisco"},
+    { id: 16, name: "Michoacán"},
+    { id: 17, name: "Morelos"},
+    { id: 18, name: "Nayarit"},
+    { id: 19, name: "Nuevo León"},
+    { id: 20, name: "Oaxaca"},
+    { id: 21, name: "Puebla"},
+    { id: 22, name: "Querétaro"},
+    { id: 23, name: "Quintana Roo"},
+    { id: 24, name: "San Luis Potosí"},
+    { id: 25, name: "Sinaloa"},
+    { id: 26, name: "Sonora"},
+    { id: 27, name: "Tabasco"},
+    { id: 28, name: "Tamaulipas"},
+    { id: 29, name: "Tlaxcala"},
+    { id: 30, name: "Veracruz"},
+    { id: 31, name: "Yucatán"},
+    { id: 32, name: "zacatecas"},
 ];
 
 const Nav = () => {
@@ -63,21 +63,11 @@ const Nav = () => {
                     Directorio
                 </Link>
             </li>
-            {/* <li className="nav-item mr-3">
-                <Link className="nav-link" to="/categories" onClick={itemActive}>
-                    Categorias
-                </Link>
-            </li> */}
             <li className="nav-item mr-3">
                 <Link className="nav-link" to="/featured" onClick={itemActive}>
                     Destacados
                 </Link>
             </li>
-            {/* <li className="nav-item mr-3" onClick={itemActive}>
-                <Link className="nav-link" to="/register">
-                    Registrarte
-                </Link>
-            </li> */}
             <li className="nav-item mr-3 dropdown">
                 <Link
                     className="nav-link dropdown-toggle"
@@ -94,7 +84,10 @@ const Nav = () => {
                     aria-labelledby="navbarDropdown"
                 >
                     {states.map((state) => {
-                        return <DropdownItem state={state} />;
+                        return <DropdownItem
+                            key={state.id} 
+                            state={state.name}      
+                        />;
                     })}
                 </ul>
             </li>
