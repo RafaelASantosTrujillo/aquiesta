@@ -1,8 +1,8 @@
 
 import React, { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
-
-import { AuthContext } from "./context";
+import ThemeContext from "../context/ThemeContext";
+import { AuthContext } from "../context/LogInContext";
 
 import "../css/login.css";
 
@@ -10,13 +10,11 @@ import "../css/login.css";
 const URL = "http://localhost:4000/usuarios";
 
 function Login() {
+    const { theme } = useContext(ThemeContext);
     const authContext = useContext(AuthContext);
-
     const loginHandler = () => {
         authContext.login();
     };
-
-
 
     /*Users - BD*/
     const [users, setUsers] = useState({
@@ -87,54 +85,52 @@ function Login() {
             password: ''
         })
     };
-
+    
     return (
-        <div className="container-fluid">
-            <div className="d-flex-column">
-                <h3 className="text-center"> Inicia sesión </h3>
-                <div className="d-flex justify-content-center background">
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label className="form-label">Correo</label>
-                            <input type="email"
-                                className="form-control"
-                                placeholder="Ingresa tu correo"
-                                name="email"
-                                value={signIn.email}
-                                onChange={handleChange}
-                                required />
-                        </div>
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input type="password"
-                                className="form-control"
-                                placeholder="Ingresa tu contraseña"
-                                name="password"
-                                value={signIn.password}
-                                onChange={handleChange}
-                                required />
-                        </div>
-                        <button type="submit"
-                            className=" btn btn-color btn-block"
-                        >Enviar
-                        </button>
-                        <p className="pt-2 forgot-password text-right">
-                            <a href="#" className="link-color">¿Olvide mi contraseña?</a>
-                        </p>
-                        <div className="form-group">
-                            <div className="nav-item">
-                                <p>¿Eres nuevo?
-                            <Link className="link-primary link-color" to="/register">
-                                        Registrate aquí
-                            </Link>
-                                </p>
-                            </div>
-                        </div>
+        <div style={{ height: "100%" }} className={`container-fluid d-flex justify-content-center ${theme}`}>
 
-                    </form>
-                </div>
-            </div>
-        </div >
+            <form onSubmit={{handleSubmit}}>
+                <h3 className="text-center"> Inicia sesión </h3>
+                
+                    <div className="form-group">
+                        <label className="form-label">Correo</label>
+                        <input type="email"
+                            className="form-control"
+                            placeholder="Ingresa tu correo"
+                            name="email"
+                            value={signIn.email}
+                            onChange={handleChange}
+                            required />
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input type="password"
+                            className="form-control"
+                            placeholder="Ingresa tu contraseña"
+                            name="password"
+                            value={signIn.password}
+                            onChange={handleChange}
+                            required />
+                    </div>
+                    <button type="submit"
+                        className=" btn btn-color btn-block"
+                    >Enviar
+                        </button>
+                    <p className="pt-2 forgot-password text-right">
+                        <a href="#" className="link-color">¿Olvide mi contraseña?</a>
+                    </p>
+                    <div className="form-group mt-4">
+                        <div className="nav-item">
+                            <p>¿Eres nuevo?
+                                        <Link className="link-primary " to="/register">
+                                    Registrate aquí
+                                        </Link>
+                            </p>
+                        </div>
+                    </div>
+                
+            </form>
+        </div>
     )
 }
 

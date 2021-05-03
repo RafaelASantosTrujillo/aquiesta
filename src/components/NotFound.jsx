@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import image404 from "../img/404.png"
+import ThemeContext from "../context/ThemeContext";
+
 function NotFound (){
+    const { theme } = useContext(ThemeContext);
     return(
         <React.Fragment>
-            <div style={{display:"flex", justifyContent:"center",textAlign:"center"}}>
-                <img src="https://image.freepik.com/vector-gratis/error-404-pagina-no-encontrada-falta-papel_114341-25.jpg" alt="Página no encontrada" width="30%"/>
+            <div style={{display:"flex", justifyContent:"center",textAlign:"center", height:"100%"}} className={`${theme}`}>
+                <img src={image404} alt="Página no encontrada" width="40%"/>
             </div>
         </React.Fragment>
     );

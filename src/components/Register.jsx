@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import PropTypes from 'prop-types';
-
+import ThemeContext from "../context/ThemeContext";
 import Commerce from "./Commerce";
 
 import '../css/register.css';
@@ -108,6 +108,7 @@ let states = [
 
 
 function Register(props) {
+    const {theme} = useContext(ThemeContext);
     /*Users - BD*/
     const [users, setUsers] = useState({
         name: '',
@@ -275,14 +276,14 @@ function Register(props) {
     if (form === false) {
         return (
             <React.Fragment>
-                <div className="pt-3 mb-3 ms-5  container-fluid d-flex flex-column">
+                <div className={`pt-3 mb-3 ms-5  container-fluid d-flex flex-column ${theme}`}>
                     <div className="d-flex justify-content-center">
                         <h1>¡Bienvenido!</h1>
                     </div>
                     <div className="mb-3 d-flex justify-content-center">
                         <h2>Queremos que te unas a nuestra comunidad</h2>
                     </div>
-                    <div className="m-4 pt-4 container-fluid background">
+                    <div className="m-4 pt-4 container-fluid">
                         <form className="row g-3 d-flex flex-column" onSubmit={submitHandler}>
                             <div className="row d-flex justify-content-center">
                                 <div className="col-md-3 g-3">
@@ -314,15 +315,15 @@ function Register(props) {
                                     <div className="flex-row">
                                         <label className="form-label"> Género </label>
                                     </div>
-                                    <div className="flex-row dropwdown">
+                                    <div className="flex-row">
                                         <select value={newUser.gender}
-                                            className="btn dropdown-toggle"
+                                            className={`btn ${theme}`}
                                             onChange={changeHandlerUser}
                                             name="gender"
                                             required>
-                                            <option defaultValue className="dropdown-item">Selecciona tu género</option>
-                                            <option value="femenino" className="dropdown-item"> Femenino </option>
-                                            <option value="masculino" className="dropdown-item">Masculino</option>
+                                            <option defaultValue className={` ${theme}`}>Selecciona tu género</option>
+                                            <option value="femenino" className={`${theme}`}> Femenino </option>
+                                            <option value="masculino" className={` ${theme}`}>Masculino</option>
                                         </select>
                                     </div>
                                 </div>
