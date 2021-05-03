@@ -1,9 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
 import "../css/Home.css";
+import ThemeContext from "../context/ThemeContext";
 function Home() {
+    const {theme} = useContext(ThemeContext);
     return (
         <React.Fragment>
-            <div className="home-container">
+            <div className={"home-container " + theme}>
                 <div className="home-container1">
                     <h2>Encuentra todo</h2>
                     <p>Negocios al alcance de tu mano</p>

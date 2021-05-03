@@ -10,7 +10,9 @@ import '../css/navbar.css';
 
 const NavBar = (props) => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light pt-5 pb-5 ">
+        <nav className={
+            "navbar navbar-expand-lg navbar-light pt-5 pb-5 " + props.theme
+        }>
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
                     <img src={Logo} alt="Logo Aquí Está" className="w-50" />

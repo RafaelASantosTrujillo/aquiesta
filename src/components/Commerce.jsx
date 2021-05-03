@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import ThemeContext from "../context/ThemeContext";
 
 let states = [
     {
@@ -98,11 +99,12 @@ let states = [
 ]
 
 function Commerce(props) {
+    const {theme} = useContext(ThemeContext);
     const neg = props.newNeg;
 
     console.log("props ", props);
     return (
-        <div className="pt-3 mb-3 container-fluid d-flex flex-column">
+        <div className={`pt-3 mb-3 container-fluid d-flex flex-column ${theme}`}>
             <div className="d-flex justify-content-center">
                 <h1>Gracias por registrarte {props.name}
                 </h1>

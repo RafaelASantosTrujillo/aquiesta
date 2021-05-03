@@ -1,18 +1,15 @@
 
 import React, { useState, useContext } from "react";
-
-// import React, { useState } from "react";
-
 import { Link } from 'react-router-dom';
-
+import ThemeContext from "../context/ThemeContext";
 import { AuthContext } from "./context";
 
 //URL del fake-backend
 const URL = "http://localhost:4000/usuarios";
 
 function Login() {
+    const {theme} = useContext(ThemeContext);
     const authContext = useContext(AuthContext);
-
     const loginHandler = () => {
         authContext.login();
     };
@@ -90,7 +87,7 @@ function Login() {
     };
 
     return (
-        <div className="container-fluid d-flex justify-content-center">
+        <div style={{height:"100%"}} className={ `container-fluid d-flex justify-content-center ${theme}`}>
             <form onSubmit={handleSubmit}>
                 <div className="col align-items-center">
                     <h3> Inicia sesión </h3>
@@ -102,17 +99,17 @@ function Login() {
                     <label className="form-label">Correo</label>
                     <input type="email"
                         className="form-control"
-                        placeholder="Enter email"
+                        placeholder="correo@example.com"
                         name="email"
                         value={signIn.email}
                         onChange={handleChange}
                         required />
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
+                    <label>Contraseña</label>
                     <input type="password"
                         className="form-control"
-                        placeholder="Enter password"
+                        placeholder="Contraseña"
                         name="password"
                         value={signIn.password}
                         onChange={handleChange}
@@ -122,10 +119,10 @@ function Login() {
                     className="btn btn-primary btn-block"
                 >Enviar
                 </button>
-                <p className="forgot-password text-right">
+                {/* <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
-                </p>
-                <div className="form-group">
+                </p> */}
+                <div className="form-group mt-4">
                     <div className="nav-item">
                         <p>¿Eres nuevo?
                             <Link className="link-primary " to="/register">

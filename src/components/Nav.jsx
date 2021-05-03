@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DropdownItem from "./DropdownItem";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { Link } from 'react-router-dom';
 import "../css/nav.css";
-// import { logDOM } from "@testing-library/dom";
+import ThemeContext from "../context/ThemeContext";
 
 const states = [
     { id: 1, name: "Aguascalientes"},
@@ -42,6 +42,14 @@ const states = [
 
 const Nav = () => {
     const [isDarkMode, setIsDarkMode] = useState(() => false);
+    const { theme, updateTheme } = useContext(ThemeContext);
+    React.useEffect(() => {
+        if (isDarkMode) {
+            updateTheme("dark");
+        } else {
+            updateTheme("light");
+        }
+    }, [isDarkMode]);
 
     const itemActive  = e => {
         const anterior = document.querySelector('.active');
@@ -55,17 +63,32 @@ const Nav = () => {
         <ul className="navbar-nav me-auto ms-auto mb-2 mb-lg-0 d-flex justify-content-between align-items-center mr-auto ml-auto">
             <li className="nav-item mr-3">
                 <Link className="nav-link active" onClick={itemActive} aria-current="page" to="/">
-                    Inicio
+                <span
+                        style={{ background: "transparent" }}
+                        className={`${theme}`}
+                    >
+                        Inicio
+                    </span>
                 </Link>
             </li>
             <li className="nav-item mr-3">
                 <Link className="nav-link" to="/directory" onClick={itemActive}>
-                    Directorio
+                <span
+                        style={{ background: "transparent" }}
+                        className={`${theme}`}
+                    >
+                        Directorio
+                    </span>
                 </Link>
             </li>
             <li className="nav-item mr-3">
                 <Link className="nav-link" to="/featured" onClick={itemActive}>
-                    Destacados
+                <span
+                        style={{ background: "transparent" }}
+                        className={`${theme}`}
+                    >
+                        Destacados
+                    </span>
                 </Link>
             </li>
             <li className="nav-item mr-3 dropdown">
@@ -77,7 +100,12 @@ const Nav = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                 >
-                    Seleccionar Estado
+                    <span
+                        style={{ background: "transparent" }}
+                        className={`${theme}`}
+                    >
+                        Seleccionar estado
+                    </span>
                 </Link>
                 <ul
                     className="dropdown-menu scrollable-menu"

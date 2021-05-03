@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import PropTypes from 'prop-types';
-
+import ThemeContext from "../context/ThemeContext";
 import Commerce from "./Commerce";
 
 //URL del fake-backend
@@ -106,6 +106,7 @@ let states = [
 
 
 function Register(props) {
+    const {theme} = useContext(ThemeContext);
     /*Users - BD*/
     const [users, setUsers] = useState({
         name: '',
@@ -273,7 +274,7 @@ function Register(props) {
     if (form === false) {
         return (
             <React.Fragment>
-                <div className="pt-3 mb-3 ms-5  container-fluid d-flex flex-column">
+                <div className={`pt-3 mb-3 ms-5  container-fluid d-flex flex-column ${theme}`}>
                     <div className="d-flex justify-content-center">
                         <h1>¡Bienvenido!</h1>
                     </div>
