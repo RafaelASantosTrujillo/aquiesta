@@ -1,0 +1,15 @@
+{
+    "negocios": [
+        {
+            "id": 1,
+            "negocio": "Quesadillas Mary",
+            "phone": "5654221132",
+            "category": 6,
+            "state": "Aguascalientes",
+            "desc": "Vendo las mejoresquesadillas",
+            "mailNeg": "",
+            "web": "",
+            "price": 2
+        }
+    ]
+}

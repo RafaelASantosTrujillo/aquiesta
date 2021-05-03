@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
+
 import Commerce from "./Commerce";
 
 //URL del fake-backend
-const URL = "http://localhost:4000/usuarios";
+const URL1 = "http://localhost:4000/usuarios";
+const URL2 = "http://localhost:4000/negocios";
 
 let states = [
     {
@@ -104,39 +106,28 @@ let states = [
 
 
 function Register(props) {
-    /*Para ver si hay que registrar un Negocio*/
-    const [form, setForm] = useState(false);
-    /*Negocio -BD*/
-    const [newNeg, setNewNeg] = useState({
-        negocio: '',
-        phone: '',
-        category: '',
-        state: '',
-        desc: '',
-        mailNeg: '',
-        web: '',
-        prince: ''
-    });
-    /*User - BD*/
-    const [newUser, setNewUser] = useState({
+    /*Users - BD*/
+    const [users, setUsers] = useState({
         name: '',
         lastname: '',
         gender: '',
         usrState: '',
-        mail: '',
+        email: '',
         password: '',
         type: false
     });
+
     React.useEffect(() => {
         const getData = async () => {
             try {
-                const response = await fetch(URL);
+                const response = await fetch(URL1);
                 const data = await response.json();
-                setNewUser(data);
+                setUsers(data);
             } catch (error) {
                 console.error(error);
             }
         };
+
         getData();
     }, []);
 
@@ -149,57 +140,93 @@ function Register(props) {
             body: data ? JSON.stringify(data) : null
         });
     }
-
-    const submitHandlerRegister = async (newUser) => {
-        console.log(newUser);
-        const exists = newUser.find(e => newUser.mail === e.mail);
+    /*Guarda un nuevo usuario en la BD */
+    const postUser = async (email) => {
+        let keys = Object.keys(users);
+        let exists = false;
+        for (keys in users) {
+            console.log(keys,users[keys].email);
+            if (users[keys].email ===email) {
+                exists = true;
+            }
+        }
+        
         if (exists) {
-            alert(`${newUser.mail} ya existe!`)
+            alert(`usuario con "${newUser.email}" ya registrado`);
             return
         }
 
         const config = {
-            url: URL,
+            url: URL1,
             method: "POST"
         };
 
-        const data = {
-            name: newUser.name,
-            lastname: newUser.lastname,
-            gender: newUser.gender,
-            usrState: newUser.usrState,
-            mail: newUser.mail,
-            password: newUser.password,
-            type: newUser.type
-        };
+        const data = { ...newUser };
 
-        /*try {
+        try {
             const response = await goToBackend(config, data);
+
             if (!response.ok) throw new Error("Response not ok");
-
-            const usr = await response.json();
-
+            const usuario = await response.json();
+            console.log("usuario ", usuario);
         } catch (error) {
             console.log(error);
-        }*/
+        }
+    }
+    /*Para ver si hay que registrar un Negocio*/
+    const [form, setForm] = useState(false);
+    /*User - Register*/
+    const [newUser, setNewUser] = useState({
+        name: '',
+        lastname: '',
+        gender: '',
+        usrState: '',
+        email: '',
+        password: '',
+        type: false
+    });
+    
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        postUser(newUser.email);
 
         if (newUser.type === true) {
             setForm(true);
         }
 
+        setNewUser({
+            name: '',
+            lastname: '',
+            gender: '',
+            usrState: '',
+            email: '',
+            password: '',
+            type: false
+        })
+
     }
 
     const changeHandlerUser = (e) => {
+        console.log(props);
         (e.target.type === 'checkbox') ? setNewUser({...newUser,[e.target.name]: e.target.checked}) :
                                         setNewUser({ ...newUser, [e.target.name]: e.target.value});
         console.log(newUser);
-
     }
 
+    /*Negocio - Register*/
+    const [newNeg, setNewNeg] = useState({
+        negocio: '',
+        phone: '',
+        category: '',
+        state: '',
+        desc: '',
+        mailNeg: '',
+        web: '',
+        price: ''
+    });
+
     const changeHandlerNeg = (e) => {
-        /*const target = event.target;
-            const value = target.type === 'checkbox' ? target.checked : target.value;
-            const input = target.name;*/
         setNewNeg({
             ...newNeg,
             [e.target.name]: e.target.value
@@ -207,8 +234,40 @@ function Register(props) {
         console.log(newNeg);
     }
 
-    const submitHandlerCommerce = () => {
-        //console.log(negocio, phone, category, state, desc, mailNeg, web, price);
+    const postNegocio = async () => {
+        const config = {
+            url: URL2,
+            method: "POST"
+        };
+
+        const data = { ...newNeg };
+
+        try {
+            const response = await goToBackend(config, data);
+
+            if (!response.ok) throw new Error("Response not ok");
+            const negocio = await response.json();
+            console.log("negocio ", negocio);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const submitHandlerCommerce = (e) => {
+        e.preventDefault();
+
+        postNegocio();
+
+        setNewNeg({
+            negocio: '',
+            phone: '',
+            category: '',
+            state: '',
+            desc: '',
+            mailNeg: '',
+            web: '',
+            price: ''
+        });
     }
 
     if (form === false) {
@@ -222,7 +281,7 @@ function Register(props) {
                         <h2>Queremos que te unas a nuestra comunidad</h2>
                     </div>
                     <div className="m-4 pt-4 container-fluid">
-                        <form className="row g-3 d-flex flex-column" onSubmit={submitHandlerRegister}>
+                        <form className="row g-3 d-flex flex-column" onSubmit={submitHandler}>
                             <div className="row d-flex justify-content-center">
                                 <div className="col-md-3 g-3">
                                     <label className="form-label">Nombre</label>
@@ -296,8 +355,8 @@ function Register(props) {
                                     <input
                                         className="form-control"
                                         type="email"
-                                        name="mail"
-                                        value={newUser.mail}
+                                        name="email"
+                                        value={newUser.email}
                                         onChange={changeHandlerUser}
                                         required
                                     />
@@ -340,13 +399,14 @@ function Register(props) {
                 name={newUser.name}
                 submitHandlerCommerce={submitHandlerCommerce}
                 changeHandlerRegister={changeHandlerNeg}
+                newNeg={newNeg}
             />
         );
     }
 }
 
 Register.propTypes = {
-    newUser: PropTypes.object,
+    name: PropTypes.name,
     submitHandlerCommerce: PropTypes.func,
     changeHandlerNeg: PropTypes.func,
     newNeg: PropTypes.object

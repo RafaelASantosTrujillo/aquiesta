@@ -10,24 +10,34 @@ import Featured from "./Featured";
 import Register from "./Register";
 import Login from "./Login";
 
-//URL del fake-backend
-const URL="http://localhost:4000/usuarios";
+import { AuthContext } from './context';
 
 function App() {
+    const [loggedIn, setLoggedIn] = React.useState(false);
+
+    const login = () => {
+        setLoggedIn(true);
+    }
+
+    const logout = () => {
+        setLoggedIn(false);
+    }
 
     return (
         <BrowserRouter>
-            <Layout>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/directory" component={Main} />
-                    <Route exact path="/categories" component={Category} />
-                    <Route exact path="/featured" component={Featured} />
-                    <Route exact path="/register" component={Register} />
-                    <Route exact path="/login" component={Login} />
-                    <Route component={NotFound} />
-                </Switch>
-            </Layout>
+            <AuthContext.Provider value={{isLoggedIn: loggedIn, login: login, logout: logout }}>
+                <Layout>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/directory" component={Main} />
+                        <Route exact path="/categories" component={Category} />
+                        <Route exact path="/featured" component={Featured} />
+                        <Route exact path="/register" component={Register} />
+                        <Route exact path="/login" component={Login} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </Layout>
+            </AuthContext.Provider >
         </BrowserRouter>
     );
 }

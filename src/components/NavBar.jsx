@@ -1,9 +1,11 @@
 import React from 'react';
-import Logo from '../img/logo-aqui-esta.svg';
-import Nav from './Nav';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+import Logo from '../img/logo-aqui-esta.svg';
+import Nav from './Nav';
+import LogInOut from './LogInOut';
+
+const NavBar = (props) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light pt-5 pb-5 ">
             <div className="container-fluid">
@@ -17,9 +19,7 @@ const NavBar = () => {
                     <Nav />
                 </div>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <Link className="btn btn-outline-primary btn-image px-3 mr-2 " to="/login">
-                        Inicia sesión
-                    </Link>
+                    <LogInOut />
                 </div>
             </div>
         </nav>

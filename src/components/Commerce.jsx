@@ -98,7 +98,7 @@ let states = [
 ]
 
 function Commerce(props) {
-
+    const neg = props.newNeg;
 
     console.log("props ", props);
     return (
@@ -119,7 +119,7 @@ function Commerce(props) {
                                 type="text"
                                 className="form-control"
                                 name="negocio"
-                                value={props.negocio}
+                                value={neg.negocio}
                                 onChange={props.changeHandlerRegister}
                                 required />
                         </div>
@@ -128,7 +128,7 @@ function Commerce(props) {
                             <input type="number" 
                             className="form-control"
                             name="phone"
-                            value={props.phone}
+                            value={neg.phone}
                             onChange={props.changeHandlerRegister}
                             required />
                         </div>
@@ -139,7 +139,7 @@ function Commerce(props) {
                             <div className="row-12 ">
                                 <select className="form-select" 
                                     onChange={props.changeHandlerRegister}
-                                    value={props.state}
+                                    value={neg.category}
                                     name="category"
                                     required>
                                     <option defaultValue="">Selecciona una categoria</option>
@@ -165,7 +165,7 @@ function Commerce(props) {
                             </div>
                             <div className="flex-row ">
                                 <select className="form-select"
-                                    value={props.state}
+                                    value={neg.state}
                                     onChange={props.changeHandlerRegister}
                                     name="state"
                                     required>
@@ -188,7 +188,7 @@ function Commerce(props) {
                             <input type="email" 
                                     className="form-control" 
                                     name="mailNeg"
-                                    value={props.mailNeg}
+                                    value={neg.mailNeg}
                                     onChange={props.changeHandlerRegister}
                                      />
                         </div>
@@ -197,7 +197,7 @@ function Commerce(props) {
                             <input type="url" 
                                     className="form-control" 
                                     name="web"
-                                    value={props.web}
+                                    value={neg.web}
                                     onChange={props.changeHandlerRegister}
                                     />
                         </div>
@@ -233,7 +233,7 @@ function Commerce(props) {
                                 <option value="6">$100-$5000</option>
                                 <option value="7">$200-$2500</option>
                                 <option value="8">Otro</option>
-                                <option value="9">PReguntar por mensaje</option>
+                                <option value="9">Preguntar por mensaje</option>
                             </select>
                             </div>
                         </div>
