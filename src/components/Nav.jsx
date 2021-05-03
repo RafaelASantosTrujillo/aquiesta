@@ -3,7 +3,8 @@ import DropdownItem from "./DropdownItem";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { Link } from 'react-router-dom';
 import "../css/nav.css";
-// import { logDOM } from "@testing-library/dom";
+
+
 
 const states = [
     { id: 1, name: "Aguascalientes"},

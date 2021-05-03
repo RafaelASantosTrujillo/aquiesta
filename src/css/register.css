@@ -1,0 +1,11 @@
+.background{
+    background-color: #cfe6f0c7;
+    border-radius: 5px;
+}
+.btn.btn-color{
+    background-color:#9d71e6 ;
+    
+}
+.btn-color:hover {
+  background-color:#A97DF1 ; 
+}

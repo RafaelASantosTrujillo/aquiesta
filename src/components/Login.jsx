@@ -1,11 +1,10 @@
 
 import React, { useState, useContext } from "react";
-
-// import React, { useState } from "react";
-
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from "./context";
+
+import "../css/login.css";
 
 //URL del fake-backend
 const URL = "http://localhost:4000/usuarios";
@@ -90,52 +89,52 @@ function Login() {
     };
 
     return (
-        <div className="container-fluid d-flex justify-content-center">
-            <form onSubmit={handleSubmit}>
-                <div className="col align-items-center">
-                    <h3> Inicia sesión </h3>
-                </div>
-                {/*state.errorMessage && (
-                    <span className="form-error">{state.errorMessage}</span>
-                )*/}
-                <div className="form-group">
-                    <label className="form-label">Correo</label>
-                    <input type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                        name="email"
-                        value={signIn.email}
-                        onChange={handleChange}
-                        required />
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password"
-                        className="form-control"
-                        placeholder="Enter password"
-                        name="password"
-                        value={signIn.password}
-                        onChange={handleChange}
-                        required />
-                </div>
-                <button type="submit"
-                    className="btn btn-primary btn-block"
-                >Enviar
-                </button>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
-                <div className="form-group">
-                    <div className="nav-item">
-                        <p>¿Eres nuevo?
-                            <Link className="link-primary " to="/register">
-                                Registrate aquí
-                    </Link>
+        <div className="container-fluid">
+            <div className="d-flex-column">
+                <h3 className="text-center"> Inicia sesión </h3>
+                <div className="d-flex justify-content-center background">
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label className="form-label">Correo</label>
+                            <input type="email"
+                                className="form-control"
+                                placeholder="Ingresa tu correo"
+                                name="email"
+                                value={signIn.email}
+                                onChange={handleChange}
+                                required />
+                        </div>
+                        <div className="form-group">
+                            <label>Password</label>
+                            <input type="password"
+                                className="form-control"
+                                placeholder="Ingresa tu contraseña"
+                                name="password"
+                                value={signIn.password}
+                                onChange={handleChange}
+                                required />
+                        </div>
+                        <button type="submit"
+                            className=" btn btn-color btn-block"
+                        >Enviar
+                        </button>
+                        <p className="pt-2 forgot-password text-right">
+                            <a href="#" className="link-color">¿Olvide mi contraseña?</a>
                         </p>
-                    </div>
+                        <div className="form-group">
+                            <div className="nav-item">
+                                <p>¿Eres nuevo?
+                            <Link className="link-primary link-color" to="/register">
+                                        Registrate aquí
+                            </Link>
+                                </p>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-            </form>
-        </div>
+            </div>
+        </div >
     )
 }
 

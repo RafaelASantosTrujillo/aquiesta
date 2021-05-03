@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/formSearch.css';
+import '../css/LogInOut.css';
 
 import { AuthContext } from "./context";
 
@@ -13,14 +13,14 @@ const LogInOut = () => {
 
 
     return (
-        <div className="container-fluid d-flex">
+        <div className="container-fluid d-flex navbar-nav me-auto ms-auto mb-2 mb-lg-0 justify-content-between align-items-center mr-auto ml-auto ">
             <div className="align-items-md-center ">
                 {!authContext.isLoggedIn &&
-                    <Link className="btn btn-outline-primary btn-image px-3 mr-2"
+                    <Link className="btn btn-color px-3 mr-2"
                         to="/login"
                     >Inicia Sesion </Link>}
                 {authContext.isLoggedIn &&
-                    <Link className="btn btn-outline-primary btn-image px-3 mr-2"
+                    <Link className="btn-color btn px-3 mr-2"
                         to="/"
                         onClick={logoutHandler}>Salir</Link>}
             </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../css/commerce.css';
+
 let states = [
     {
         label: "Aguascalientes",
@@ -113,7 +115,7 @@ function Commerce(props) {
             <div className="m-4 pt-4 container-fluid">
                 <form className="row g-3 d-flex flex-column" onSubmit={props.submitHandlerCommerce}>
                     <div className="row d-flex justify-content-center">
-                        <div className="col-md-3">
+                        <div className="col-auto">
                             <label className="col-form-label" required>Nombre de tu negocio</label>
                             <input
                                 type="text"
@@ -136,7 +138,7 @@ function Commerce(props) {
                             <div className="flex-row">
                                 <label className="form-label">Categoria</label>
                             </div>
-                            <div className="row-12 ">
+                            <div className="col-auto">
                                 <select className="form-select" 
                                     onChange={props.changeHandlerRegister}
                                     value={neg.category}

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Commerce from "./Commerce";
 
+import '../css/register.css';
+
 //URL del fake-backend
 const URL1 = "http://localhost:4000/usuarios";
 const URL2 = "http://localhost:4000/negocios";
@@ -280,7 +282,7 @@ function Register(props) {
                     <div className="mb-3 d-flex justify-content-center">
                         <h2>Queremos que te unas a nuestra comunidad</h2>
                     </div>
-                    <div className="m-4 pt-4 container-fluid">
+                    <div className="m-4 pt-4 container-fluid background">
                         <form className="row g-3 d-flex flex-column" onSubmit={submitHandler}>
                             <div className="row d-flex justify-content-center">
                                 <div className="col-md-3 g-3">
@@ -312,15 +314,15 @@ function Register(props) {
                                     <div className="flex-row">
                                         <label className="form-label"> Género </label>
                                     </div>
-                                    <div className="flex-row ">
+                                    <div className="flex-row dropwdown">
                                         <select value={newUser.gender}
-                                            className="form-select"
+                                            className="btn dropdown-toggle"
                                             onChange={changeHandlerUser}
                                             name="gender"
                                             required>
-                                            <option defaultValue>Selecciona tu género</option>
-                                            <option value="femenino"> Femenino </option>
-                                            <option value="masculino">Masculino</option>
+                                            <option defaultValue className="dropdown-item">Selecciona tu género</option>
+                                            <option value="femenino" className="dropdown-item"> Femenino </option>
+                                            <option value="masculino" className="dropdown-item">Masculino</option>
                                         </select>
                                     </div>
                                 </div>
@@ -328,16 +330,17 @@ function Register(props) {
                                     <div className="flex-row">
                                         <label className="form-label"> Estado </label>
                                     </div>
-                                    <div className="flex-row mb-3">
+                                    <div className="flex-row mb-3 dropdown">
                                         <select value={newUser.usrState}
-                                            className="form-select"
+                                            className="btn dropdown-toggle"
                                             onChange={changeHandlerUser}
                                             name="usrState"
                                             required>
-                                            <option defaultValue>Selecciona tu estado</option>
+                                            <option defaultValue className="dropdown-item">Selecciona tu estado</option>
                                             {
                                                 states.map(state => {
                                                     return <option
+                                                        className="dropdown-item"
                                                         key={state.value}
                                                         value={state.value}
                                                     >
@@ -386,7 +389,7 @@ function Register(props) {
                                 </div>
                             </div>
                             <div className="pt-3 row-md-3 g-3 d-flex justify-content-center">
-                                <button type="submit" className="btn btn-primary">Registrar</button>
+                                <button type="submit" className="btn btn-color">Registrar</button>
                             </div>
                         </form>
                     </div>
