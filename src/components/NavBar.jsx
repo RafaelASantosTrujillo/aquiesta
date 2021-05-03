@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 
 import Logo from '../img/logo-aqui-esta.svg';
 import Nav from './Nav';
+
 import LogInOut from './LogInOut';
+
+import '../css/navbar.css';
 
 const NavBar = (props) => {
     return (
@@ -17,6 +20,7 @@ const NavBar = (props) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <Nav />
+
                 </div>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <LogInOut />

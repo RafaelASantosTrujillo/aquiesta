@@ -145,12 +145,12 @@ function Register(props) {
         let keys = Object.keys(users);
         let exists = false;
         for (keys in users) {
-            console.log(keys,users[keys].email);
-            if (users[keys].email ===email) {
+            console.log(keys, users[keys].email);
+            if (users[keys].email === email) {
                 exists = true;
             }
         }
-        
+
         if (exists) {
             alert(`usuario con "${newUser.email}" ya registrado`);
             return
@@ -185,7 +185,7 @@ function Register(props) {
         password: '',
         type: false
     });
-    
+
     const submitHandler = (e) => {
         e.preventDefault();
 
@@ -209,8 +209,8 @@ function Register(props) {
 
     const changeHandlerUser = (e) => {
         console.log(props);
-        (e.target.type === 'checkbox') ? setNewUser({...newUser,[e.target.name]: e.target.checked}) :
-                                        setNewUser({ ...newUser, [e.target.name]: e.target.value});
+        (e.target.type === 'checkbox') ? setNewUser({ ...newUser, [e.target.name]: e.target.checked }) :
+            setNewUser({ ...newUser, [e.target.name]: e.target.value });
         console.log(newUser);
     }
 
