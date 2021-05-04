@@ -34,7 +34,7 @@ function Featured() {
     const { theme } = useContext(ThemeContext);
     return (
         <React.Fragment>
-            <div className={`container-fluid ${theme}`}>
+            <div style={{height:"100%"}} className={`container-fluid ${theme}`}>
                 <div
                     style={{
                         display: "flex",
