@@ -113,3 +113,6 @@ https://xd.adobe.com/view/b180bac8-fd0f-4c74-74fa-ec745f064f9c-c7b1/
 
 ## Github-pages
 https://rafaelasantostrujillo.github.io/aquiesta
+
+## Video del Proyecto
+https://youtu.be/eJpaPvlajBk
